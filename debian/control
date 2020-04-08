@@ -45,6 +45,7 @@ Build-Depends: debhelper (>= 9), golang-go,
  libsystemd-dev,
  deepin-desktop-schemas,
  python3,
+ libasound2-dev,
  librsvg2-bin
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
@@ -80,6 +81,7 @@ Depends: ${shlibs:Depends},
  xkb-data,
  libnotify-bin,
  rfkill,
+ alsa-utils,
  hwinfo
 Breaks: dde-daemon(<< 2.92.2), dde-workspace, lastore-daemon(<< 0.9.64)
 Replaces: lastore-daemon(<< 0.9.64)
