@@ -20,6 +20,8 @@
 package shortcuts
 
 import (
+	"os"
+	"os/exec"
 	"regexp"
 	"strings"
 	"sync"
@@ -783,12 +785,25 @@ func (sm *ShortcutManager) AddSystem(gsettings *gio.Settings) {
 		if name == "" {
 			name = id
 		}
+		session := os.Getenv("XDG_SESSION_TYPE")
+		if strings.Contains(session, "wayland") {
+			if id == "deepin-screen-recorder" || id == "wm-switcher" {
+				continue
+			}
+		}
+		cmd := getSystemActionCmd(id)
+		if id == "terminal-quake" && strings.Contains(cmd, "deepin-terminal") {
+			termPath, _ := exec.LookPath("deepin-terminal")
+			if termPath == "" {
+				continue
+			}
+		}
 		keystrokes := gsettings.GetStrv(id)
 		gs := NewGSettingsShortcut(gsettings, id, ShortcutTypeSystem, keystrokes, name)
 		sysShortcut := &SystemShortcut{
 			GSettingsShortcut: gs,
 			arg: &ActionExecCmdArg{
-				Cmd: getSystemActionCmd(id),
+				Cmd: cmd,
 			},
 		}
 		sm.addWithoutLock(sysShortcut)
