@@ -93,18 +93,18 @@ func (m *Manager) lockWaitShow(timeout time.Duration, autoStartAuth bool) {
 }
 
 func (m *Manager) setDPMSModeOn() {
-	logger.Info("DPMS On")
-	var err error
-
-	if m.UseWayland {
-		setDPMSByKWL("On")
-	} else {
-		c := m.helper.xConn
-		err = dpms.ForceLevelChecked(c, dpms.DPMSModeOn).Check(c)
-	}
-	if err != nil {
-		logger.Warning("Set DPMS on error:", err)
-	}
+	//logger.Info("DPMS On")
+	//var err error
+	//
+	//if m.UseWayland {
+	//	setDPMSByKWL("On")
+	//} else {
+	//	c := m.helper.xConn
+	//	err = dpms.ForceLevelChecked(c, dpms.DPMSModeOn).Check(c)
+	//}
+	//if err != nil {
+	//	logger.Warning("Set DPMS on error:", err)
+	//}
 }
 
 func (m *Manager) setDPMSModeOff() {
@@ -159,6 +159,20 @@ func (m *Manager) doLock(autoStartAuth bool) {
 	}
 	lockFrontObj := bus.Object(lockFrontServiceName, lockFrontObjPath)
 	err = lockFrontObj.Call(lockFrontIfc+".ShowAuth", 0, autoStartAuth).Err
+	if err != nil {
+		logger.Warning("failed to call lockFront ShowAuth:", err)
+	}
+}
+
+func (m *Manager) doScreenBlack() {
+	logger.Info("Black Screen")
+	conn, err := dbus.SessionBus()
+	if err != nil {
+		logger.Warning(err)
+		return
+	}
+	lockFrontObj := conn.Object(lockFrontServiceName, lockFrontObjPath)
+	err = lockFrontObj.Call(lockFrontIfc+".ShowBlack", 0).Err
 	if err != nil {
 		logger.Warning("failed to call lockFront ShowAuth:", err)
 	}
