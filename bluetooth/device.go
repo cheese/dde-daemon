@@ -212,6 +212,15 @@ func (d *device) notifyDeviceAdded() {
 	globalBluetooth.updateState()
 }
 
+func (d *device) notifyDevicePinCancle() {
+	logger.Debug("DevicePinCancle", d)
+	err := globalBluetooth.service.Emit(globalBluetooth, "PinCancle", marshalJSON(d))
+	if err != nil {
+		logger.Warning(err)
+	}
+	globalBluetooth.updateState()
+}
+
 func (d *device) notifyDeviceRemoved() {
 	logger.Debug("DeviceRemoved", d)
 	err := globalBluetooth.service.Emit(globalBluetooth, "DeviceRemoved", marshalJSON(d))
@@ -246,6 +255,7 @@ func (d *device) connectProperties() {
 			sinceConnected := time.Since(d.connectedTime)
 			logger.Debug("sinceConnected:", sinceConnected)
 			logger.Debug("retryConnectCount:", d.retryConnectCount)
+			d.notifyDevicePinCancle()
 
 			if sinceConnected < 300*time.Millisecond {
 				if d.retryConnectCount == 0 {

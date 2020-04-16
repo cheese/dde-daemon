@@ -106,7 +106,7 @@ type Bluetooth struct {
 			adapterJSON string
 		}
 
-		DeviceAdded, DeviceRemoved, DevicePropertiesChanged struct {
+		DeviceAdded, DeviceRemoved, DevicePropertiesChanged,PinCancle struct {
 			devJSON string
 		}
 
