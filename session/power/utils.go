@@ -164,7 +164,21 @@ func (m *Manager) doLock(autoStartAuth bool) {
 	}
 }
 
-func (m *Manager) doScreenBlack() {
+func (m *Manager) callLockFrontShow() {
+	logger.Info("callLockFrontShow")
+	conn, err := dbus.SessionBus()
+	if err != nil {
+		logger.Warning(err)
+		return
+	}
+	lockFrontObj := conn.Object(lockFrontServiceName, lockFrontObjPath)
+	err = lockFrontObj.Call(lockFrontIfc+".Show", 0).Err
+	if err != nil {
+		logger.Warning("failed to call lockFront Show:", err)
+	}
+}
+
+func (m *Manager) callLockFrontShowBlack() {
 	logger.Info("Black Screen")
 	conn, err := dbus.SessionBus()
 	if err != nil {
@@ -174,7 +188,7 @@ func (m *Manager) doScreenBlack() {
 	lockFrontObj := conn.Object(lockFrontServiceName, lockFrontObjPath)
 	err = lockFrontObj.Call(lockFrontIfc+".ShowBlack", 0).Err
 	if err != nil {
-		logger.Warning("failed to call lockFront ShowAuth:", err)
+		logger.Warning("failed to call lockFront ShowBlack:", err)
 	}
 }
 
