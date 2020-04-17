@@ -164,17 +164,17 @@ func (m *Manager) doLock(autoStartAuth bool) {
 	}
 }
 
-func (m *Manager) callLockFrontShow() {
-	logger.Info("callLockFrontShow")
+func (m *Manager) callLockFrontHide() {
+	logger.Info("callLockFrontHide")
 	conn, err := dbus.SessionBus()
 	if err != nil {
 		logger.Warning(err)
 		return
 	}
 	lockFrontObj := conn.Object(lockFrontServiceName, lockFrontObjPath)
-	err = lockFrontObj.Call(lockFrontIfc+".Show", 0).Err
+	err = lockFrontObj.Call(lockFrontIfc+".Hide", 0).Err
 	if err != nil {
-		logger.Warning("failed to call lockFront Show:", err)
+		logger.Warning("failed to call lockFront Hide:", err)
 	}
 }
 

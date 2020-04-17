@@ -108,7 +108,7 @@ func (m *Manager) handleWakeup() {
 	}
 
 	m.setDPMSModeOn()
-	m.callLockFrontShow()
+	m.callLockFrontHide()
 	m.helper.Power.RefreshBatteries(0)
 	playSound(soundutils.EventWakeup)
 }
