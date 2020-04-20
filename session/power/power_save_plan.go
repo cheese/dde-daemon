@@ -584,7 +584,6 @@ func (psp *powerSavePlan) HandleIdleOff() {
 	logger.Info("HandleIdleOff")
 	psp.interruptTasks()
 	psp.manager.setDPMSModeOn()
-	psp.manager.callLockFrontHide()
 	psp.resetBrightness()
 
 	_, err := os.Stat("/etc/deepin/no_suspend")

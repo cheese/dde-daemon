@@ -78,7 +78,7 @@ func (m *Manager) initOnBatteryChangedHandler() {
 }
 
 func (m *Manager) handleBeforeSuspend() {
-	m.callLockFrontShowBlack()
+	m.setDPMSModeOff()
 	m.setPrepareSuspend(suspendStatePrepare)
 	logger.Debug("before sleep")
 	if m.SleepLock.Get() {
@@ -108,7 +108,6 @@ func (m *Manager) handleWakeup() {
 	}
 
 	m.setDPMSModeOn()
-	m.callLockFrontHide()
 	m.helper.Power.RefreshBatteries(0)
 	playSound(soundutils.EventWakeup)
 }
