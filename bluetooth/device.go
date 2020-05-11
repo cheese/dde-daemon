@@ -87,6 +87,7 @@ type device struct {
 	mu                sync.Mutex
 	confirmation      chan bool
 	pairingFailedTime time.Time
+	pairFail          bool
 }
 
 type connectPhase uint32
@@ -557,6 +558,7 @@ func (d *device) doPair() error {
 		logger.Warningf("%s pair failed: %v", d, err)
 		d.pairingFailedTime = time.Now()
 		d.setConnectPhase(connectPhaseNone)
+		d.pairFail = false
 		return err
 	}
 
@@ -629,4 +631,8 @@ func (d *device) goWaitDisconnect() chan struct{} {
 		ch <- struct{}{}
 	}()
 	return ch
+}
+
+func (d *device)  setPairFail() {
+	d.pairFail = false
 }

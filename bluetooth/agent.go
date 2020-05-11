@@ -153,8 +153,15 @@ func (a *agent) RequestPasskey(dpath dbus.ObjectPath) (passkey uint32, busErr *d
 func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 	entered uint16) *dbus.Error {
 
+	d, err := a.b.getDevice(dpath)
+	if !(d.pairFail) {
+		logger.Debug("pairFail---------------")
+		d.pairFail = true
+		return nil
+	}
 	logger.Info("DisplayPasskey()", passkey, entered)
-	err := a.b.service.Emit(a.b, "DisplayPasskey", dpath, passkey, uint32(entered))
+//	key := fmt.Sprintf("%06d", passkey)
+	err = a.b.service.Emit(a.b, "DisplayPasskey", dpath, passkey, uint32(entered))
 	if err != nil {
 		logger.Warning("Failed to emit signal 'DisplayPasskey':", err, dpath, passkey, entered)
 	}
