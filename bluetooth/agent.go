@@ -109,7 +109,7 @@ func (a *agent) RequestPinCode(dpath dbus.ObjectPath) (pincode string, busErr *d
 //Possible errors: org.bluez.Error.Rejected
 //				   org.bluez.Error.Canceled
 func (a *agent) DisplayPinCode(devPath dbus.ObjectPath, pinCode string) (err *dbus.Error) {
-	logger.Info("DisplayPinCode()", pinCode)
+        logger.Info("DisplayPinCode()",pinCode)
 	a.b.service.Emit(a.b, "DisplayPinCode", devPath, pinCode)
 	return
 }
@@ -152,16 +152,13 @@ func (a *agent) RequestPasskey(dpath dbus.ObjectPath) (passkey uint32, busErr *d
 //the value contains less than 6 digits.
 func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 	entered uint16) *dbus.Error {
-
-	d, err := a.b.getDevice(dpath)
-	if !(d.pairFail) {
-		logger.Debug("pairFail---------------")
-		d.pairFail = true
+	logger.Info("DisplayPasskey()", passkey, entered)
+        if globalBluetooth.pinTimes != deviceStateConnecting {
 		return nil
 	}
-	logger.Info("DisplayPasskey()", passkey, entered)
+	globalBluetooth.pinTimes++
 //	key := fmt.Sprintf("%06d", passkey)
-	err = a.b.service.Emit(a.b, "DisplayPasskey", dpath, passkey, uint32(entered))
+	err := a.b.service.Emit(a.b, "DisplayPasskey", dpath, passkey, uint32(entered))
 	if err != nil {
 		logger.Warning("Failed to emit signal 'DisplayPasskey':", err, dpath, passkey, entered)
 	}
@@ -176,6 +173,7 @@ func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 //			       org.bluez.Error.Canceled
 func (a *agent) RequestConfirmation(dpath dbus.ObjectPath, passkey uint32) *dbus.Error {
 	logger.Info("RequestConfirmation", dpath, passkey)
+	globalBluetooth.pinTimes = deviceStateConnecting 
 
 	d, err := a.b.getDevice(dpath)
 	if err != nil {
@@ -196,6 +194,7 @@ func (a *agent) RequestConfirmation(dpath dbus.ObjectPath, passkey uint32) *dbus
 //				   org.bluez.Error.Canceled
 func (a *agent) RequestAuthorization(dpath dbus.ObjectPath) *dbus.Error {
 	logger.Info("RequestAuthorization()")
+	globalBluetooth.pinTimes = deviceStateConnecting 
 
 	d, err := a.b.getDevice(dpath)
 	if err != nil {

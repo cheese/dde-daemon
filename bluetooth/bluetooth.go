@@ -79,6 +79,7 @@ type Bluetooth struct {
 
 	PropsMu sync.RWMutex
 	State   uint32 // StateUnavailable/StateAvailable/StateConnected
+	pinTimes uint32 // Limite passKey times
 
 	methods *struct {
 		DebugInfo                     func() `out:"info"`
