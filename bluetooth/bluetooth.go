@@ -77,8 +77,8 @@ type Bluetooth struct {
 	devicesLock sync.Mutex
 	devices     map[dbus.ObjectPath][]*device
 
-	PropsMu sync.RWMutex
-	State   uint32 // StateUnavailable/StateAvailable/StateConnected
+	PropsMu  sync.RWMutex
+	State    uint32 // StateUnavailable/StateAvailable/StateConnected
 	pinTimes uint32 // Limite passKey times
 
 	methods *struct {
@@ -107,7 +107,7 @@ type Bluetooth struct {
 			adapterJSON string
 		}
 
-		DeviceAdded, DeviceRemoved, DevicePropertiesChanged,PinCancle struct {
+		DeviceAdded, DeviceRemoved, DevicePropertiesChanged, PinCancle struct {
 			devJSON string
 		}
 
@@ -606,6 +606,14 @@ func (b *Bluetooth) tryConnectPairedDevices() {
 		err = obj.doConnect(false)
 		if err != nil {
 			logger.Debug("failed to connect:", obj.String(), err)
+			for i := 0; i < 2; i++ {
+				err = obj.doConnect(false)
+				if err != nil {
+					logger.Debug("failed to connect:", obj.String(), err)
+				} else {
+					break
+				}
+			}
 		}
 	}
 }
@@ -620,11 +628,11 @@ func (b *Bluetooth) getPairedDeviceList() []*device {
 	for _, aobj := range b.adapters {
 		logger.Info("[DEBUG] Auto connect adapter:", aobj.Path)
 		list := b.devices[aobj.Path]
-		if len(list) == 0 || b.config.getAdapterConfigPowered(aobj.address) {
+		if len(list) == 0 || !b.config.getAdapterConfigPowered(aobj.address) {
 			continue
 		}
 		for _, dev := range list {
-			if dev.Paired && !dev.connected {
+			if dev.Paired && !dev.connected && b.isDeviceNeedReconnection(dev) {
 				devList = append(devList, dev)
 			}
 		}
@@ -682,4 +690,9 @@ func (b *Bluetooth) wakeupWorkaround() {
 		}
 		b.tryConnectPairedDevices()
 	})
+}
+
+func (b *Bluetooth) isDeviceNeedReconnection(dev *device) bool {
+	// Audio-card Input-keyboard Input-mouse are allowed re-pair
+	return dev.Icon == "audio-card"
 }
