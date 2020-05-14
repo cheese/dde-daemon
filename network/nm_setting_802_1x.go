@@ -43,21 +43,21 @@ func logicSetSetting8021xEap(data connectionData, value []string) (err error) {
 			nm.NM_SETTING_802_1X_PRIVATE_KEY,
 			nm.NM_SETTING_802_1X_PRIVATE_KEY_PASSWORD,
 			nm.NM_SETTING_802_1X_PRIVATE_KEY_PASSWORD_FLAGS)
-		setSetting8021xPrivateKeyPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_AGENT_OWNED)
+		setSetting8021xPrivateKeyPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_NONE)
 	case "md5":
 		removeSettingKeyBut(data, nm.NM_SETTING_802_1X_SETTING_NAME,
 			nm.NM_SETTING_802_1X_EAP,
 			nm.NM_SETTING_802_1X_IDENTITY,
 			nm.NM_SETTING_802_1X_PASSWORD,
 			nm.NM_SETTING_802_1X_PASSWORD_FLAGS)
-		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_AGENT_OWNED)
+		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_NONE)
 	case "leap":
 		removeSettingKeyBut(data, nm.NM_SETTING_802_1X_SETTING_NAME,
 			nm.NM_SETTING_802_1X_EAP,
 			nm.NM_SETTING_802_1X_IDENTITY,
 			nm.NM_SETTING_802_1X_PASSWORD,
 			nm.NM_SETTING_802_1X_PASSWORD_FLAGS)
-		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_AGENT_OWNED)
+		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_NONE)
 	case "fast":
 		removeSettingKeyBut(data, nm.NM_SETTING_802_1X_SETTING_NAME,
 			nm.NM_SETTING_802_1X_EAP,
@@ -70,7 +70,7 @@ func logicSetSetting8021xEap(data connectionData, value []string) (err error) {
 			nm.NM_SETTING_802_1X_PASSWORD_FLAGS)
 		setSetting8021xPhase1FastProvisioning(data, "1")
 		setSetting8021xPhase2Auth(data, "gtc")
-		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_AGENT_OWNED)
+		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_NONE)
 	case "ttls":
 		removeSettingKeyBut(data, nm.NM_SETTING_802_1X_SETTING_NAME,
 			nm.NM_SETTING_802_1X_EAP,
@@ -81,7 +81,7 @@ func logicSetSetting8021xEap(data connectionData, value []string) (err error) {
 			nm.NM_SETTING_802_1X_PASSWORD,
 			nm.NM_SETTING_802_1X_PASSWORD_FLAGS)
 		setSetting8021xPhase2Auth(data, "pap")
-		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_AGENT_OWNED)
+		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_NONE)
 	case "peap":
 		removeSettingKeyBut(data, nm.NM_SETTING_802_1X_SETTING_NAME,
 			nm.NM_SETTING_802_1X_EAP,
@@ -94,7 +94,7 @@ func logicSetSetting8021xEap(data connectionData, value []string) (err error) {
 			nm.NM_SETTING_802_1X_PASSWORD_FLAGS)
 		removeSetting8021xPhase1Peapver(data)
 		setSetting8021xPhase2Auth(data, "mschapv2")
-		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_AGENT_OWNED)
+		setSetting8021xPasswordFlags(data, nm.NM_SETTING_SECRET_FLAG_NONE)
 	}
 	setSetting8021xEap(data, value)
 	return
