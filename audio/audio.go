@@ -147,6 +147,7 @@ func newAudio(service *dbusutil.Service) *Audio {
 	}
 
 	a.settings = gio.NewSettings(gsSchemaAudio)
+	a.settings.Reset(gsKeyInputVolume)
 	a.IncreaseVolume.Bind(a.settings, gsKeyVolumeIncrease)
 	a.headphoneUnplugAutoPause = a.settings.GetBoolean(gsKeyHeadphoneUnplugAutoPause)
 	if a.IncreaseVolume.Get(){
@@ -586,6 +587,7 @@ func (a *Audio) resetSourceVolume() {
 		a.ctx.SetSourceMuteByIndex(s.Index, false)
 		cv := s.Volume.SetAvg(defaultInputVolume).SetBalance(s.ChannelMap,
 			0).SetFade(s.ChannelMap, 0)
+		logger.Debug("defaultInputVolume = ",defaultInputVolume,cv)
 		a.ctx.SetSourceVolumeByIndex(s.Index, cv)
 	}
 }
