@@ -38,12 +38,12 @@ const (
 )
 
 const (
-	Page_timeout = "Page timeout"
-	Authentication_timeout = "Authentication timeout"
-	Authentication_rejected = "Authentication rejected"
-	Authentication_canceled = "Authentication canceled"
-	Already_paired = "Already paired"
-	Authentication_failed = "Authentication failed"
+	Page_timeout = "Page Timeout"
+	Authentication_timeout = "Authentication Timeout"
+	Authentication_rejected = "Authentication Rejected"
+	Authentication_canceled = "Authentication Canceled"
+	Already_paired = "Already Paired"
+	Authentication_failed = "Authentication Failed"
 )
 
 var globalNotifications *notifications.Notifications
@@ -107,22 +107,22 @@ func notifyConnectFailed(alias, err string) {
 	var errReason string
 	switch err {
 	case Page_timeout:
-		errReason = Tr("Page timeout")
+		errReason = Tr("Page Timeout")
 		break
 	case Authentication_timeout:
-		errReason = Tr("Authentication timeout")
+		errReason = Tr("Authentication Timeout")
 		break
 	case Authentication_rejected:
-		errReason = Tr("Authentication rejected")
+		errReason = Tr("Authentication Rejected")
 		break
 	case Authentication_canceled:
-		errReason = Tr("Authentication canceled")
+		errReason = Tr("Authentication Canceled")
 		break
 	case Already_paired:
-		errReason = Tr("Already paired")
+		errReason = Tr("Already Paired")
 		break
 	case Authentication_failed:
-		errReason = Tr("Authentication failed")
+		errReason = Tr("Authentication Failed")
 		break
 	default:
 		translate := Tr("Make sure %q is turned on and in range")
