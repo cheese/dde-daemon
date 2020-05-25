@@ -483,7 +483,7 @@ func (d *device) doConnect(hasNotify bool) error {
 	err = d.doPair()
 	if err != nil {
 		if hasNotify {
-			notifyConnectFailedHostDown(d.Alias)
+			notifyConnectFailed(d.Alias, err.Error())
 		}
 		return err
 	}

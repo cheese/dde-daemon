@@ -37,6 +37,15 @@ const (
 	bluetoothPinCodeDialogBin        = "/usr/lib/deepin-daemon/dde-bluetooth-dialog"
 )
 
+const (
+	Page_timeout = "Page timeout"
+	Authentication_timeout = "Authentication timeout"
+	Authentication_rejected = "Authentication rejected"
+	Authentication_canceled = "Authentication canceled"
+	Already_paired = "Already paired"
+	Authentication_failed = "Authentication failed"
+)
+
 var globalNotifications *notifications.Notifications
 var globalNotifyId uint32
 var globalNotifyMu sync.Mutex
@@ -92,6 +101,34 @@ func notifyConnectFailedHostDown(alias string) {
 
 func notifyConnectFailedAux(alias, format string) {
 	notify(notifyIconBluetoothConnectFailed, Tr("Bluetooth connection failed"), fmt.Sprintf(format, alias))
+}
+
+func notifyConnectFailed(alias, err string) {
+	var errReason string
+	switch err {
+	case Page_timeout:
+		errReason = Tr("Page timeout")
+		break
+	case Authentication_timeout:
+		errReason = Tr("Authentication timeout")
+		break
+	case Authentication_rejected:
+		errReason = Tr("Authentication rejected")
+		break
+	case Authentication_canceled:
+		errReason = Tr("Authentication canceled")
+		break
+	case Already_paired:
+		errReason = Tr("Already paired")
+		break
+	case Authentication_failed:
+		errReason = Tr("Authentication failed")
+		break
+	default:
+		translate := Tr("Make sure %q is turned on and in range")
+		errReason = fmt.Sprintf(translate,alias)
+	}
+	notify(notifyIconBluetoothConnectFailed, Tr("Bluetooth connection failed"), alias + ":" +errReason)
 }
 
 func notifyRequestConfirm(alias string, devPath dbus.ObjectPath, pinCode string) {
