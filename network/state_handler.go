@@ -348,6 +348,13 @@ func (sh *stateHandler) watch(path dbus.ObjectPath) {
 					if oldState == nm.NM_DEVICE_STATE_CONFIG && newState == nm.NM_DEVICE_STATE_NEED_AUTH {
 						msg = fmt.Sprintf(Tr("Connection failed, unable to connect %q, wrong password"), dsi.aconnId)
 					}
+			             	if data, err := nmGetDeviceActiveConnectionData(path); err == nil {
+						sh.m.secretAgent.DeleteSecrets(data,path)
+					}
+					if sh.m.ActiveConnectSettingPath == path {
+						sh.m.DisconnectDevice(sh.m.ActiveConnectDevpath)
+					}
+
 				//default:
 				//	if dsi.aconnId != "" {
 				//		msg = fmt.Sprintf(Tr("%q disconnected"), dsi.aconnId)
