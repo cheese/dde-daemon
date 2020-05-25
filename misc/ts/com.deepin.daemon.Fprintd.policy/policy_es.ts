@@ -9,7 +9,7 @@
 		<message>
 			<location filename="com.deepin.daemon.fprintd.enroll!description" line="0"/>
 			<source>Add fingerprint password</source>
-			<translation>Agregar contraseña de huella dactilar</translation>
+			<translation>Añadir contraseña de huella dactilar</translation>
 		</message>
 		<message>
 			<location filename="com.deepin.daemon.fprintd.delete-enrolled-fingers!message" line="0"/>
@@ -20,6 +20,16 @@
 			<location filename="com.deepin.daemon.fprintd.delete-enrolled-fingers!description" line="0"/>
 			<source>Clear fingerprint passwords</source>
 			<translation>Borrar contraseñas de huellas dactilares</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>Se requiere autenticación para renombrar la contraseña huella dactilar</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>Renombrar contraseña de huella dactilar</translation>
 		</message>
 	</context>
 </TS>

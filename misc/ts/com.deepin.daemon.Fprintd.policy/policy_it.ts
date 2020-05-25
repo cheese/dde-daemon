@@ -21,5 +21,15 @@
 			<source>Clear fingerprint passwords</source>
 			<translation>Cancella impronte digitali utilizzare come password</translation>
 		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>Autenticazione richiesta per rinominare l&apos;impronta digitale</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>Rinomina l&apos;impronta digitale</translation>
+		</message>
 	</context>
 </TS>

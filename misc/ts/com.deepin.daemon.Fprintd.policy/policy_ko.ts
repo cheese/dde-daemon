@@ -21,5 +21,15 @@
 			<source>Clear fingerprint passwords</source>
 			<translation>지문 암호 지우기</translation>
 		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>지문 암호의 이름을 변경하려면 인증이 필요함</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>지문 암호 이름 변경</translation>
+		</message>
 	</context>
 </TS>

@@ -21,5 +21,15 @@
 			<source>Clear fingerprint passwords</source>
 			<translation>Parmak izi parolalarını temizle</translation>
 		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>Parmak izi parolasını yeniden adlandırmak için kimlik doğrulaması gerekli</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>Parmak izi parolasını yeniden adlandır</translation>
+		</message>
 	</context>
 </TS>

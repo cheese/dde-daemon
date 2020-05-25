@@ -21,5 +21,15 @@
 			<source>Clear fingerprint passwords</source>
 			<translation>清除指紋密碼</translation>
 		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>重命名指紋需要認證</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>重命名指紋密碼</translation>
+		</message>
 	</context>
 </TS>

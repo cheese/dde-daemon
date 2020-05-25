@@ -21,5 +21,15 @@
 			<source>Clear fingerprint passwords</source>
 			<translation>Xoá dấu vân tay</translation>
 		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>Yêu cầu xác thực để đổi tên mật khẩu vân tay</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>Đổi tên mật khẩu vân tay</translation>
+		</message>
 	</context>
 </TS>

@@ -9,7 +9,7 @@
 		<message>
 			<location filename="com.deepin.daemon.fprintd.enroll!description" line="0"/>
 			<source>Add fingerprint password</source>
-			<translation>Lisää sormenjälkisalasana</translation>
+			<translation>Lisää sormenjälki salasanaksi</translation>
 		</message>
 		<message>
 			<location filename="com.deepin.daemon.fprintd.delete-enrolled-fingers!message" line="0"/>
@@ -20,6 +20,16 @@
 			<location filename="com.deepin.daemon.fprintd.delete-enrolled-fingers!description" line="0"/>
 			<source>Clear fingerprint passwords</source>
 			<translation>Tyhjennä sormenjäljet</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>Nimeä sormenjälki uudelleen, tämä vaatii tunnistautumisen</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>Nimeä sormenjäljen salasana uudelleen</translation>
 		</message>
 	</context>
 </TS>

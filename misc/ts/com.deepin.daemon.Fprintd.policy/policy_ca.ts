@@ -21,5 +21,15 @@
 			<source>Clear fingerprint passwords</source>
 			<translation>Neteja les contrasenyes d&apos;empremta</translation>
 		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!message" line="0"/>
+			<source>Authentication is required to rename fingerprint password</source>
+			<translation>Cal autenticació per canviar de nom una contrasenya d&apos;empremta.</translation>
+		</message>
+		<message>
+			<location filename="com.deepin.daemon.fprintd.rename-enrolled-finger!description" line="0"/>
+			<source>Rename fingerprint password</source>
+			<translation>Canvia de nom la contrasenya d&apos;empremta</translation>
+		</message>
 	</context>
 </TS>
