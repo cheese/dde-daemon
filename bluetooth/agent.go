@@ -112,8 +112,19 @@ func (a *agent) RequestPinCode(dpath dbus.ObjectPath) (pincode string, busErr *d
 //				   org.bluez.Error.Canceled
 func (a *agent) DisplayPinCode(devPath dbus.ObjectPath, pinCode string) (err *dbus.Error) {
         logger.Info("DisplayPinCode()",pinCode)
-	a.b.service.Emit(a.b, "DisplayPinCode", devPath, pinCode)
-	return
+        a.b.service.Emit(a.b, "DisplayPinCode", devPath, pinCode)
+        if globalBluetooth.pinTimes != deviceStateConnecting {
+		return nil
+	}
+	globalBluetooth.pinTimes++
+	d, error := a.b.getDevice(devPath)
+	if nil != error {
+		logger.Warningf("DisplayPasskey can not find device: %v, %v", devPath, error)
+		return  nil
+	}
+	showConfirmDialog(devPath, pinCode)
+        d.setActiveDoConnect(false)
+	return  
 }
 
 //RequestPasskey method gets called when the service daemon needs to get the passkey for an authentication.
@@ -159,11 +170,18 @@ func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 		return nil
 	}
 	globalBluetooth.pinTimes++
-//	key := fmt.Sprintf("%06d", passkey)
 	err := a.b.service.Emit(a.b, "DisplayPasskey", dpath, passkey, uint32(entered))
 	if err != nil {
 		logger.Warning("Failed to emit signal 'DisplayPasskey':", err, dpath, passkey, entered)
 	}
+	d, err := a.b.getDevice(dpath)
+	if nil != err {
+		logger.Warningf("DisplayPasskey can not find device: %v, %v", dpath, err)
+		return  nil
+	}
+	key := fmt.Sprintf("%06d", passkey)
+	showConfirmDialog(dpath, key)
+        d.setActiveDoConnect(false)
 	return nil
 }
 
