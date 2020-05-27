@@ -328,7 +328,11 @@ func (sh *stateHandler) watch(path dbus.ObjectPath) {
 						if dsi.connectionType == connectionWirelessHotspot {
 							notify(icon, "", Tr("Hotspot disabled"))
 						} else {
-							msg = fmt.Sprintf(Tr("%q disconnected"), dsi.aconnId)
+							if sh.m.secretAgent.iconFlags {
+								msg = fmt.Sprintf(Tr("%q disconnected"), dsi.aconnId)
+							} else {
+								sh.m.secretAgent.iconFlags = true
+							}
 						}
 					}
 				case nm.NM_DEVICE_STATE_REASON_NEW_ACTIVATION:
@@ -347,9 +351,9 @@ func (sh *stateHandler) watch(path dbus.ObjectPath) {
 				case nm.NM_DEVICE_STATE_REASON_SUPPLICANT_DISCONNECT:
 					if oldState == nm.NM_DEVICE_STATE_CONFIG && newState == nm.NM_DEVICE_STATE_NEED_AUTH {
 						msg = fmt.Sprintf(Tr("Connection failed, unable to connect %q, wrong password"), dsi.aconnId)
-					}
-			             	if data, err := nmGetDeviceActiveConnectionData(path); err == nil {
-						sh.m.secretAgent.DeleteSecrets(data,path)
+			             		if data, err := nmGetDeviceActiveConnectionData(path); err == nil {
+							sh.m.secretAgent.DeleteSecrets(data,path)
+						}
 					}
 					if sh.m.ActiveConnectSettingPath == path {
 						sh.m.DisconnectDevice(sh.m.ActiveConnectDevpath)

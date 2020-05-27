@@ -57,6 +57,7 @@ type SecretAgent struct {
 	saveSecretsTasksMu sync.Mutex
 
 	m *Manager
+	iconFlags  bool
 
 	methods *struct {
 		GetSecrets        func() `in:"connection,connectionPath,settingName,hints,flags" out:"secrets"`
@@ -567,6 +568,7 @@ func (sa *SecretAgent) getSecrets(connectionData map[string]map[string]dbus.Vari
 			if err != nil {
 				logger.Warning("askPasswords error:", err)
 				if sa.m.ActiveConnectSettingPath == connectionPath {
+					sa.iconFlags = false 
 					sa.m.DisconnectDevice(sa.m.ActiveConnectDevpath)
 				}
 			} else {
