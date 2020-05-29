@@ -471,7 +471,6 @@ func (d *device) doConnect(hasNotify bool) error {
 
 	d.setConnectPhase(connectPhaseStart)
 	defer d.setConnectPhase(connectPhaseNone)
-        globalBluetooth.pinTimes = deviceStateConnecting 
 	err := d.cancelBlock()
 	if err != nil {
 		if hasNotify {

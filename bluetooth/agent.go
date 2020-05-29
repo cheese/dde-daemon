@@ -111,12 +111,9 @@ func (a *agent) RequestPinCode(dpath dbus.ObjectPath) (pincode string, busErr *d
 //Possible errors: org.bluez.Error.Rejected
 //				   org.bluez.Error.Canceled
 func (a *agent) DisplayPinCode(devPath dbus.ObjectPath, pinCode string) (err *dbus.Error) {
-        logger.Info("DisplayPinCode()",pinCode)
-        a.b.service.Emit(a.b, "DisplayPinCode", devPath, pinCode)
-        if globalBluetooth.pinTimes != deviceStateConnecting {
-		return nil
-	}
-	globalBluetooth.pinTimes++
+    	logger.Info("DisplayPinCode()",pinCode)
+    	a.b.service.Emit(a.b, "DisplayPinCode", devPath, pinCode)
+
 	d, error := a.b.getDevice(devPath)
 	if nil != error {
 		logger.Warningf("DisplayPasskey can not find device: %v, %v", devPath, error)
@@ -166,10 +163,6 @@ func (a *agent) RequestPasskey(dpath dbus.ObjectPath) (passkey uint32, busErr *d
 func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 	entered uint16) *dbus.Error {
 	logger.Info("DisplayPasskey()", passkey, entered)
-        if globalBluetooth.pinTimes != deviceStateConnecting {
-		return nil
-	}
-	globalBluetooth.pinTimes++
 	err := a.b.service.Emit(a.b, "DisplayPasskey", dpath, passkey, uint32(entered))
 	if err != nil {
 		logger.Warning("Failed to emit signal 'DisplayPasskey':", err, dpath, passkey, entered)
@@ -192,8 +185,7 @@ func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 //Possible errors: org.bluez.Error.Rejected
 //			       org.bluez.Error.Canceled
 func (a *agent) RequestConfirmation(dpath dbus.ObjectPath, passkey uint32) *dbus.Error {
-	logger.Info("RequestConfirmation", dpath, passkey)
-	globalBluetooth.pinTimes = deviceStateConnecting 
+	logger.Info("RequestConfirmation", dpath, passkey) 
 
 	d, err := a.b.getDevice(dpath)
 	if err != nil {
@@ -213,8 +205,7 @@ func (a *agent) RequestConfirmation(dpath dbus.ObjectPath, passkey uint32) *dbus
 //Possible errors: org.bluez.Error.Rejected
 //				   org.bluez.Error.Canceled
 func (a *agent) RequestAuthorization(dpath dbus.ObjectPath) *dbus.Error {
-	logger.Info("RequestAuthorization()")
-	globalBluetooth.pinTimes = deviceStateConnecting 
+	logger.Info("RequestAuthorization()") 
 
 	d, err := a.b.getDevice(dpath)
 	if err != nil {
