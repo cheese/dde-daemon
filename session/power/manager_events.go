@@ -179,7 +179,7 @@ func (m *Manager) handleWarnLevelChanged(level WarnLevel) {
 	switch level {
 	case WarnLevelAction:
 		playSound(soundutils.EventBatteryLow)
-		m.sendNotify(iconBatteryLow, Tr("Battery Critically Low"),
+		m.sendNotify(iconBatteryLow, Tr("Battery critically low"),
 			Tr("Computer will suspend very soon, please plug in now"))
 
 		m.warnLevelCountTicker = newCountTicker(time.Second, func(count int) {
