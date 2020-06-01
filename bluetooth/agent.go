@@ -163,10 +163,6 @@ func (a *agent) RequestPasskey(dpath dbus.ObjectPath) (passkey uint32, busErr *d
 func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 	entered uint16) *dbus.Error {
 	logger.Info("DisplayPasskey()", passkey, entered)
-	err := a.b.service.Emit(a.b, "DisplayPasskey", dpath, passkey, uint32(entered))
-	if err != nil {
-		logger.Warning("Failed to emit signal 'DisplayPasskey':", err, dpath, passkey, entered)
-	}
 	d, err := a.b.getDevice(dpath)
 	if nil != err {
 		logger.Warningf("DisplayPasskey can not find device: %v, %v", dpath, err)

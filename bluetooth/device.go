@@ -485,6 +485,7 @@ func (d *device) doConnect(hasNotify bool) error {
 	err = d.doPair()
 	if err != nil {
 		if hasNotify {
+            		d.core.Disconnect(0)
 			notifyConnectFailed(d.Alias, err.Error())
 		}
 		return err
@@ -494,6 +495,7 @@ func (d *device) doConnect(hasNotify bool) error {
 	err = d.doRealConnect()
 	if err != nil {
 		if hasNotify {
+           		d.core.Disconnect(0)
 			notifyConnectFailedHostDown(d.Alias)
 		}
 		return err
