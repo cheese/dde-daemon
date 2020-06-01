@@ -546,7 +546,7 @@ func (b *Bluetooth) isAdapterExists(apath dbus.ObjectPath) bool {
 }
 
 func (b *Bluetooth) feed(devPath dbus.ObjectPath, accept bool, key string) (err error) {
-	_, err = b.getDevice(devPath)
+	d, err := b.getDevice(devPath)
 	if nil != err {
 		logger.Warningf("FeedRequest can not find device: %v, %v", devPath, err)
 		return err
@@ -556,6 +556,10 @@ func (b *Bluetooth) feed(devPath dbus.ObjectPath, accept bool, key string) (err 
 	if b.agent.requestDevice != devPath {
 		b.agent.mu.Unlock()
 		logger.Warningf("FeedRequest can not find match device: %q, %q", b.agent.requestDevice, devPath)
+		if d.Icon == "input-keyboard" {
+			d.setDisconnectPhase(disconnectPhaseStart)
+			d.core.Disconnect(0)
+		}
 		return errBluezCanceled
 	}
 	b.agent.mu.Unlock()

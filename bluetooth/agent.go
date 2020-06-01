@@ -37,6 +37,8 @@ const (
 	agentDBusInterface = "org.bluez.Agent1"
 )
 
+var cmdPinDialog *exec.Cmd
+
 type authorize struct {
 	path   dbus.ObjectPath
 	key    string
@@ -111,17 +113,17 @@ func (a *agent) RequestPinCode(dpath dbus.ObjectPath) (pincode string, busErr *d
 //Possible errors: org.bluez.Error.Rejected
 //				   org.bluez.Error.Canceled
 func (a *agent) DisplayPinCode(devPath dbus.ObjectPath, pinCode string) (err *dbus.Error) {
-    	logger.Info("DisplayPinCode()",pinCode)
-    	a.b.service.Emit(a.b, "DisplayPinCode", devPath, pinCode)
+	logger.Info("DisplayPinCode()", pinCode)
+	a.b.service.Emit(a.b, "DisplayPinCode", devPath, pinCode)
 
 	d, error := a.b.getDevice(devPath)
 	if nil != error {
 		logger.Warningf("DisplayPasskey can not find device: %v, %v", devPath, error)
-		return  nil
+		return nil
 	}
 	showConfirmDialog(devPath, pinCode)
-        d.setActiveDoConnect(false)
-	return  
+	d.setActiveDoConnect(false)
+	return
 }
 
 //RequestPasskey method gets called when the service daemon needs to get the passkey for an authentication.
@@ -166,11 +168,12 @@ func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 	d, err := a.b.getDevice(dpath)
 	if nil != err {
 		logger.Warningf("DisplayPasskey can not find device: %v, %v", dpath, err)
-		return  nil
+		return nil
 	}
 	key := fmt.Sprintf("%06d", passkey)
+	logger.Debug("dpath = ", dpath)
 	showConfirmDialog(dpath, key)
-        d.setActiveDoConnect(false)
+	d.setActiveDoConnect(false)
 	return nil
 }
 
@@ -181,7 +184,7 @@ func (a *agent) DisplayPasskey(dpath dbus.ObjectPath, passkey uint32,
 //Possible errors: org.bluez.Error.Rejected
 //			       org.bluez.Error.Canceled
 func (a *agent) RequestConfirmation(dpath dbus.ObjectPath, passkey uint32) *dbus.Error {
-	logger.Info("RequestConfirmation", dpath, passkey) 
+	logger.Info("RequestConfirmation", dpath, passkey)
 
 	d, err := a.b.getDevice(dpath)
 	if err != nil {
@@ -201,7 +204,7 @@ func (a *agent) RequestConfirmation(dpath dbus.ObjectPath, passkey uint32) *dbus
 //Possible errors: org.bluez.Error.Rejected
 //				   org.bluez.Error.Canceled
 func (a *agent) RequestAuthorization(dpath dbus.ObjectPath) *dbus.Error {
-	logger.Info("RequestAuthorization()") 
+	logger.Info("RequestAuthorization()")
 
 	d, err := a.b.getDevice(dpath)
 	if err != nil {
@@ -350,12 +353,12 @@ func showConfirmDialog(devPath dbus.ObjectPath, pinCode string) {
 	}
 
 	var timestamp = strconv.FormatInt(time.Now().UnixNano(), 10)
-	cmd := exec.Command(bluetoothPinCodeDialogBin, pinCode, string(devPath), timestamp)
-	if err := cmd.Start(); err != nil {
+	cmdPinDialog = exec.Command(bluetoothPinCodeDialogBin, pinCode, string(devPath), timestamp)
+	if err := cmdPinDialog.Start(); err != nil {
 		logger.Error(err)
 		return
 	}
-	go cmd.Wait()
+	go cmdPinDialog.Wait()
 }
 
 func (a *agent) emitRequest(devPath dbus.ObjectPath, signal string, args ...interface{}) (auth authorize, err error) {

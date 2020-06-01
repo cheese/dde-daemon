@@ -485,17 +485,25 @@ func (d *device) doConnect(hasNotify bool) error {
 	err = d.doPair()
 	if err != nil {
 		if hasNotify {
-            		d.core.Disconnect(0)
+
+			if d.getDisconnectPhase() == disconnectPhaseNone {
+				d.core.Disconnect(0)
+			} else {
+				d.setDisconnectPhase(disconnectPhaseNone)
+				d.updateState()
+			}
+			killBluetoothDialog()
 			notifyConnectFailed(d.Alias, err.Error())
 		}
 		return err
 	}
+	killBluetoothDialog()
 	d.audioA2DPWorkaround()
 
 	err = d.doRealConnect()
 	if err != nil {
 		if hasNotify {
-           		d.core.Disconnect(0)
+			d.core.Disconnect(0)
 			notifyConnectFailedHostDown(d.Alias)
 		}
 		return err
@@ -651,4 +659,12 @@ func (d *device) goWaitDisconnect() chan struct{} {
 		ch <- struct{}{}
 	}()
 	return ch
+}
+
+func killBluetoothDialog() {
+	logger.Debug("killBluetoothDialog")
+	err := cmdPinDialog.Process.Kill()
+	if err != nil {
+		logger.Warning("kill err ", err)
+	}
 }
