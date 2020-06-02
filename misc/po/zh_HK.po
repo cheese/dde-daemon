@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 李洪武 <lihongwu1987@gmail.com>, 2020
 # Wyatt <wkyung@outlook.com>, 2020
 # iceleaf <iceleaf916@gmail.com>, 2020
+# 李洪武 <lihongwu1987@gmail.com>, 2020
 # spions kwong, 2020
 # Philip CHEUNG, 2020
 # Cindy0514, 2020
@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Cindy0514, 2020\n"
 "Language-Team: Chinese (Hong Kong) (https://www.transifex.com/linuxdeepin/teams/3617/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -956,27 +956,27 @@ msgstr "已連接%q"
 msgid "Hotspot disabled"
 msgstr "熱點共享已關閉"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q已斷開"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "無法共享熱點，請檢查dnsmasq 相關設置"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "未能加入%q，請嘗試靠近無線路由器"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "未能加入%q，請檢查路由器或網線。"
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "連接%q需要密碼"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "連接失敗，未能加入%q，密碼不正確"
 
@@ -1024,7 +1024,7 @@ msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr "“%s”沒有通過系統安全驗證，無法運行"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "電池電量耗盡"
 
 #: ../../session/power/manager_events.go:183

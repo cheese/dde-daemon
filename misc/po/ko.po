@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: MarongHappy <daemul72@gmail.com>, 2020\n"
 "Language-Team: Korean (https://www.transifex.com/linuxdeepin/teams/3617/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -955,27 +955,27 @@ msgstr "%q 연결됨"
 msgid "Hotspot disabled"
 msgstr "핫스팟 사용안함"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q 연결 끊김"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "핫스팟을 공유할 수 없습니다. dnsmasq 설정을 확인하십시오"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "%q을(를) 연결할 수 없습니다. 무선 라우터에 가까이 있어야 합니다"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "%q을(를) 연결할 수 없습니다. 라우터 또는 인터넷 케이블을 확인하십시오."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "%q을(를) 연결하려면 비밀번호가 필요합니다"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "연결 실패, %q을(를) 연결할 수 없습니다. 비밀번호가 잘못되었습니다"
 
@@ -1023,7 +1023,7 @@ msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr "\"%s\"가 시스템 보안 확인을 통과하지 못해 지금 실행할 수 없습니다."
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "배터리 잔량 부족"
 
 #: ../../session/power/manager_events.go:183

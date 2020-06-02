@@ -4,10 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# rusu.dorin.adrian <inactive+rusu.dorin.adrian@transifex.com>, 2020
+# 828d47520e99d69ec3431069179181cf_e9ac56f <4304e9d7f33368a6d7fc5290e16492fe_204731>, 2020
 # Tiberiu Fratila <tiberiu.fratila@gmail.com>, 2020
 # Maggie Liu <maggie.liufei@gmail.com>, 2020
-# cricri8o <inactive+cricri8o@transifex.com>, 2020
+# e45655a7feca4008b49fd878e446e184_1635295 <8a74d2bff1d5702d82b6f0f88f4ddbf3_206482>, 2020
 # Vasile Rusu <basil_russu@hotmail.com>, 2020
 # Cindy0514, 2020
 # Marian c <dark1ro@yahoo.com>, 2020
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Marian c <dark1ro@yahoo.com>, 2020\n"
 "Language-Team: Romanian (https://www.transifex.com/linuxdeepin/teams/3617/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Câmpul nume utilizator nu poate fi gol"
 
 #: ../../accounts/checkers/username.go:68
 msgid "The first character must be a letter or number"
-msgstr ""
+msgstr "Primul caracter trebuie să fie o literă sau un număr"
 
 #: ../../accounts/checkers/username.go:70
 msgid "The username already exists"
@@ -176,15 +176,15 @@ msgstr ""
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
-msgstr ""
+msgstr "Faceți clic aici pentru a vă conecta la %q"
 
 #: ../../bluetooth/utils_notify.go:136
 msgid "Add Bluetooth devices"
-msgstr ""
+msgstr "Adăugați dispozitive Bluetooth"
 
 #: ../../bluetooth/utils_notify.go:150
 msgid "Pair"
-msgstr ""
+msgstr "Împerechează"
 
 #: ../../calendar/job.go:419 ../../calendar/job.go:426
 msgid "today"
@@ -346,7 +346,7 @@ msgstr "Clipboard"
 
 #: ../../keybinding/shortcuts/id_name_map.go:49
 msgid "Translation"
-msgstr ""
+msgstr "Traducere"
 
 #: ../../keybinding/shortcuts/id_name_map.go:56
 msgid "Switch Layout"
@@ -849,7 +849,7 @@ msgstr "Manager Modem nepornit sau renuntat pe neasteptate"
 
 #: ../../network/state_handler.go:92
 msgid "The 802.11 WLAN network could not be found"
-msgstr ""
+msgstr "Rețeaua 802.11 WLAN nu a putut fi găsită"
 
 #: ../../network/state_handler.go:93
 msgid "A secondary connection of the base connection failed"
@@ -973,27 +973,27 @@ msgstr "%q conectat"
 msgid "Hotspot disabled"
 msgstr "Hotspot dezactivat"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q deconectat"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Imposibil de partajat hotspot, verificaţi setările dnsmasq "
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "Imposibil de conectat %q, staţi mai aproape de router"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "Imposibil de conectat %q, verificaţi router sau cablu reţea"
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Parolă necesară pentru conectare la %q"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Conexiune eşuată, ne se poate contecta la %q, parolă invalidă"
 
@@ -1041,9 +1041,11 @@ msgstr "Conectat"
 #, c-format
 msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr ""
+"\"%s\"  nu a trecut verificarea de securitate a sistemului și nu poate fi "
+"executat acum"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "Baterie critic scăzută"
 
 #: ../../session/power/manager_events.go:183

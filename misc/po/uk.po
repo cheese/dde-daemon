@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Cindy0514, 2020\n"
 "Language-Team: Ukrainian (https://www.transifex.com/linuxdeepin/teams/3617/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -151,27 +151,27 @@ msgstr "Збій підключення з Bluetooth"
 
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
-msgstr ""
+msgstr "Перевищено час очікування на сторінку"
 
 #: ../../bluetooth/utils_notify.go:113
 msgid "Authentication Timeout"
-msgstr ""
+msgstr "Перевищено час очікування на розпізнавання"
 
 #: ../../bluetooth/utils_notify.go:116
 msgid "Authentication Rejected"
-msgstr ""
+msgstr "Відмовлено у розпізнаванні"
 
 #: ../../bluetooth/utils_notify.go:119
 msgid "Authentication Canceled"
-msgstr ""
+msgstr "Розпізнавання скасовано"
 
 #: ../../bluetooth/utils_notify.go:122
 msgid "Already Paired"
-msgstr ""
+msgstr "Вже пов'язано"
 
 #: ../../bluetooth/utils_notify.go:125
 msgid "Authentication Failed"
-msgstr ""
+msgstr "Не вдалося пройти розпізнавання"
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
@@ -973,31 +973,31 @@ msgstr "%q підключено"
 msgid "Hotspot disabled"
 msgstr "Точка доступу вимкнена"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q відключено"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Неможливо поділитися точкою доступу, перевірте налаштування dnsmasq"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr ""
 "Неможливо підключити %q, будь ласка, тримайтеся ближче до бездротового "
 "маршрутизатора"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr ""
 "Не вдалося з'єднатися із %q. Будь ласка, перевірте, чи працює ваш "
 "маршрутизатор або мережевий кабель."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Пароль, необхідний для підключення %q"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Помилка підключення, неможливо підключити %q, невірний пароль"
 
@@ -1049,7 +1049,7 @@ msgstr ""
 "можна запускати."
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "Акумулятор критично розряджено"
 
 #: ../../session/power/manager_events.go:183

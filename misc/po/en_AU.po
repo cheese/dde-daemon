@@ -5,7 +5,7 @@
 # 
 # Translators:
 # ilox11 <ilox11@gmail.com>, 2020
-# Mogi Fu, 2020
+# ad678b801149d46c03273b8809c6c193_5440964, 2020
 # Aimi Hobson <minervavine@gmail.com>, 2020
 # Cindy0514, 2020
 # 
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Cindy0514, 2020\n"
 "Language-Team: English (Australia) (https://www.transifex.com/linuxdeepin/teams/3617/en_AU/)\n"
 "MIME-Version: 1.0\n"
@@ -967,27 +967,27 @@ msgstr "%q connected"
 msgid "Hotspot disabled"
 msgstr ""
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q disconnected"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Unable to share hotspot, please check dnsmasq settings"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "Unable to connect %q, please keep closer to the wireless router"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "Unable to connect %q, please check your router or net cable."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr ""
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Connection failed, unable to connect %q, wrong password"
 
@@ -1035,8 +1035,8 @@ msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr ""
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr "Battery Critically Low"
+msgid "Battery critically low"
+msgstr "Battery critically low"
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"

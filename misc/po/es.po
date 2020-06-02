@@ -5,11 +5,11 @@
 # 
 # Translators:
 # Jean Rivas <jeancarlosrivas@gmail.com>, 2020
-# Luis Castillo <castilloluis2005@gmail.com>, 2020
 # efedezeta <pocodance@gmail.com>, 2020
 # deepin_transifex <xiabin@linuxdeepin.com>, 2020
 # Chema Ramirez <josemrf1996@gmail.com>, 2020
 # jose luis <josemdance@outlook.com>, 2020
+# Luis Castillo <castilloluis2005@gmail.com>, 2020
 # ICesarI <icesari@msn.com>, 2020
 # Alejandro Hamann <linkstat@gmail.com>, 2020
 # roberto lopez <riscogordo@gmail.com>, 2020
@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Isaías Gätjens M <igatjens@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/linuxdeepin/teams/3617/es/)\n"
 "MIME-Version: 1.0\n"
@@ -161,27 +161,27 @@ msgstr "La conexión Bluetooth falló"
 
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
-msgstr ""
+msgstr "Tiempo de espera de la página"
 
 #: ../../bluetooth/utils_notify.go:113
 msgid "Authentication Timeout"
-msgstr ""
+msgstr "Tiempo límite de autenticación"
 
 #: ../../bluetooth/utils_notify.go:116
 msgid "Authentication Rejected"
-msgstr ""
+msgstr "Rechazo de la autentificación"
 
 #: ../../bluetooth/utils_notify.go:119
 msgid "Authentication Canceled"
-msgstr ""
+msgstr "Autenticación cancelada"
 
 #: ../../bluetooth/utils_notify.go:122
 msgid "Already Paired"
-msgstr ""
+msgstr "Ya está emparejado"
 
 #: ../../bluetooth/utils_notify.go:125
 msgid "Authentication Failed"
-msgstr ""
+msgstr "La autentificación falló"
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
@@ -218,7 +218,7 @@ msgstr "Vida"
 
 #: ../../calendar/module.go:128
 msgid "Other"
-msgstr "Otros"
+msgstr "Otro"
 
 #: ../../calendar/scheduler.go:477
 msgid "One day before start"
@@ -255,7 +255,7 @@ msgstr "Forzar cierre"
 
 #: ../../dock/app_entry_menu.go:132
 msgid "Dock"
-msgstr "Muelle"
+msgstr "Anclar"
 
 #: ../../dock/app_entry_menu.go:139
 msgid "Undock"
@@ -463,11 +463,11 @@ msgid ""
 "please wait..."
 msgstr ""
 "Cambiando el idioma del sistema e instalando los paquetes requeridos, por "
-"favor espere ..."
+"favor espere..."
 
 #: ../../langselector/locale.go:417
 msgid "Changing system language, please wait..."
-msgstr "Cambiando el idioma del sistema, por favor espere ..."
+msgstr "Cambiando el idioma del sistema, por favor espere..."
 
 #: ../../langselector/locale.go:465
 msgid "System language changed, please log out and then log in"
@@ -986,31 +986,31 @@ msgstr "%q conectado"
 msgid "Hotspot disabled"
 msgstr "Compartir conexión desactivado"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q desconectado"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr ""
 "No es posible usar la conexión compartida, comprueba los ajustes de "
 "\"dnsmasq\""
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr ""
 "No se puede conectar %q, por favor manténgase cerca del enrutador "
 "inalámbrico"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "No se puede conectar %q, compruebe su enrutador o cable de red."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Se requiere contraseña para conectarse %q"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Error en la conexión, no se puede conectar %q, contraseña incorrecta"
 
@@ -1062,7 +1062,7 @@ msgstr ""
 "ejecutarse ahora"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "Batería críticamente baja"
 
 #: ../../session/power/manager_events.go:183

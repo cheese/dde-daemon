@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 李洪武 <lihongwu1987@gmail.com>, 2020
 # fri, 2020
 # Pavel Borecki <pavel.borecki@gmail.com>, 2020
+# 李洪武 <lihongwu1987@gmail.com>, 2020
 # op6464 <op64@seznam.cz>, 2020
 # Cindy0514, 2020
 # 
@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Cindy0514, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/linuxdeepin/teams/3617/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -151,27 +151,27 @@ msgstr "Bluetooth připojení se nezdařilo"
 
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
-msgstr ""
+msgstr "Překročen časový limit stránky"
 
 #: ../../bluetooth/utils_notify.go:113
 msgid "Authentication Timeout"
-msgstr ""
+msgstr "Překročen časový limit pro ověření"
 
 #: ../../bluetooth/utils_notify.go:116
 msgid "Authentication Rejected"
-msgstr ""
+msgstr "Ověření odmítnuto"
 
 #: ../../bluetooth/utils_notify.go:119
 msgid "Authentication Canceled"
-msgstr ""
+msgstr "Ověření se zrušeno"
 
 #: ../../bluetooth/utils_notify.go:122
 msgid "Already Paired"
-msgstr ""
+msgstr "Už spárováno"
 
 #: ../../bluetooth/utils_notify.go:125
 msgid "Authentication Failed"
-msgstr ""
+msgstr "Ověření se nezdařilo"
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
@@ -760,7 +760,7 @@ msgstr "Nevyhledány žádné sítě"
 
 #: ../../network/state_handler.go:70
 msgid "Network registration was denied"
-msgstr "Registrace do sítě byla odmítnuta"
+msgstr "Registrace do sítě byla zamítnuta"
 
 #: ../../network/state_handler.go:71
 msgid "Network registration timed out"
@@ -780,7 +780,7 @@ msgstr "Firmware potřebný pro zařízení nejspíš chybí"
 
 #: ../../network/state_handler.go:75
 msgid "The device was removed"
-msgstr "Zařízení bylo odstraněno"
+msgstr "Zařízení bylo odebráno"
 
 #: ../../network/state_handler.go:76
 msgid "NetworkManager went to sleep"
@@ -968,29 +968,29 @@ msgstr "%q připojeno"
 msgid "Hotspot disabled"
 msgstr "Hotspot vypnut"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q odpojeno"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Nedaří se sdílet hotspot – prosím zkontrolujte nastavení dnsmasq"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr ""
 "Nelze se připojit k %q. Přesuňte se blíže k bezdrátovému přístupovému bodu"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr ""
 "Nedaří se připojit k %q – zkontrolujte síťové zařízení a kabely prosím."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Pro připojení se k %q je požadováno heslo"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Připojení k %q se nezdařilo – chybné heslo"
 
@@ -1041,14 +1041,14 @@ msgstr ""
 "spustit"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr "Naprosto vybitý akumulátor"
+msgid "Battery critically low"
+msgstr "Akumulátor téměř vybitý"
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"
 msgstr ""
-"Počítač velmi brzy přejde do úsporného režimu – prosím připojte k napájení z"
-" elektrické sítě"
+"Počítač velmi brzy nuceně přejde do úsporného režimu – prosím připojte k "
+"napájení z elektrické sítě"
 
 #: ../../session/power/manager_events.go:206
 #: ../../session/power/manager_events.go:213
@@ -1058,8 +1058,8 @@ msgstr "Téměř vybitý akumulátor"
 #: ../../session/power/manager_events.go:207
 msgid "Computer will suspend soon, please plug in"
 msgstr ""
-"Počítač brzy přejde do úsporného režimu – prosím připojte k napájení z "
-"elektrické sítě"
+"Počítač brzy nuceně přejde do úsporného režimu – prosím připojte k napájení "
+"z elektrické sítě"
 
 #: ../../session/power/manager_events.go:214
 msgid "Battery low, please plug in"

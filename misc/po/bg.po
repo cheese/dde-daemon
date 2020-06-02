@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Cindy0514, 2020\n"
 "Language-Team: Bulgarian (https://www.transifex.com/linuxdeepin/teams/3617/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -972,27 +972,27 @@ msgstr "%q свързан"
 msgid "Hotspot disabled"
 msgstr ""
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q прекъснат"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Неуспешно споделяне на хотспот, проверете dnsmasq настройките"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "Неуспешно свързване с %q, приближете се до безжичния рутер"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "Невъзможна връзка с %q, моля проверете рутера или мрежовия кабел."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr ""
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Неуспешна връзка, не се свързваме с %q, грешна парола"
 
@@ -1042,8 +1042,8 @@ msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr ""
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr "Критично ниво на батерията"
+msgid "Battery critically low"
+msgstr ""
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"

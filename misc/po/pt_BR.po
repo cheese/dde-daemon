@@ -7,25 +7,25 @@
 # Bruno Melnic Incao <brunomelnic@gmail.com>, 2020
 # Maggie Liu <maggie.liufei@gmail.com>, 2020
 # Raphael Miquelis <raphaelmiquelis@gmail.com>, 2020
-# Cleber Teixeira, 2020
+# Felipe André Alves Santos <lip.dre@gmail.com>, 2020
 # RAFAEL GAUNA <rafaelgt.mbin@gmail.com>, 2020
 # Kayo Martins <kayomfreire@gmail.com>, 2020
 # JeffWagen <jeff.wagen@yahoo.com>, 2020
 # Rubens de Almeida Medeiros <rubens.cejovem@gmail.com>, 2020
+# Cleber Teixeira, 2020
 # Paulo Schopf, 2020
 # Bruno Gama <brunnogama@gmail.com>, 2020
-# Felipe André Alves Santos <lip.dre@gmail.com>, 2020
 # Cindy0514, 2020
-# Alex Wender, 2020
+# Alex, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
-"Last-Translator: Alex Wender, 2020\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
+"Last-Translator: Alex, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/linuxdeepin/teams/3617/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -158,27 +158,27 @@ msgstr "Falha na conexão Bluetooth"
 
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
-msgstr ""
+msgstr "Tempo Limite da Página"
 
 #: ../../bluetooth/utils_notify.go:113
 msgid "Authentication Timeout"
-msgstr ""
+msgstr "Tempo Limite de Autenticação"
 
 #: ../../bluetooth/utils_notify.go:116
 msgid "Authentication Rejected"
-msgstr ""
+msgstr "Autenticação Rejeitada"
 
 #: ../../bluetooth/utils_notify.go:119
 msgid "Authentication Canceled"
-msgstr ""
+msgstr "Autenticação Cancelada"
 
 #: ../../bluetooth/utils_notify.go:122
 msgid "Already Paired"
-msgstr ""
+msgstr "Já Emparelhado"
 
 #: ../../bluetooth/utils_notify.go:125
 msgid "Authentication Failed"
-msgstr ""
+msgstr "A Autenticação Falhou"
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
@@ -190,7 +190,7 @@ msgstr "Adicionar dispositivos Bluetooth"
 
 #: ../../bluetooth/utils_notify.go:150
 msgid "Pair"
-msgstr "Parear"
+msgstr "Emparelhar"
 
 #: ../../calendar/job.go:419 ../../calendar/job.go:426
 msgid "today"
@@ -408,7 +408,7 @@ msgstr "Minimizar Janela"
 
 #: ../../keybinding/shortcuts/id_name_map.go:107
 msgid "Close window"
-msgstr "Fechar Janela"
+msgstr "Fechar janela"
 
 #: ../../keybinding/shortcuts/id_name_map.go:108
 msgid "Move window"
@@ -979,32 +979,32 @@ msgstr "%q conectada"
 msgid "Hotspot disabled"
 msgstr "Hotspot desativado"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q desconectado"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr ""
 "Não foi possível compartilhar o Hotspot; verifique as configurações do "
 "dnsmasq"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr ""
 "Não é possível conectar-se à %q; verifique a intensidade do sinal Wi-Fi"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr ""
 "Não foi possível conectar-se à %q; verifique as conexões ou os dispositivos "
 "de rede."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Uma senha é necessária para conectar-se à %q"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "A conexão falhou, senha incorreta. Incapaz de conectar-se à %q"
 
@@ -1054,8 +1054,8 @@ msgstr ""
 "\"%s\" não passou na verificação de segurança e não pode ser executado agora"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr "Bateria Criticamente Fraca"
+msgid "Battery critically low"
+msgstr "Bateria criticamente fraca"
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"

@@ -5,19 +5,19 @@
 # 
 # Translators:
 # كريم أولاد الشلحة <herr.linux88@gmail.com>, 2020
-# mo-hd <mo-hd@windowslive.com>, 2020
 # Khodr Abdallah <khodr000@gmail.com>, 2020
-# Oukiki Saleh <salehoukiki@gmail.com>, 2020
 # Mahmoud Abdelsalam <mahmoud.ad@tutanota.com>, 2020
-# ahmad nourallah <ahmadnurallah@gmail.com>, 2020
+# Abdullah Alnahdy <abdullahalnahdy@gmail.com>, 2020
 # salem alBream <salembream@gmail.com>, 2020
 # hamdy abd elfatah <hamdy.elzankly@gmail.com>, 2020
 # Hussain Alramadhan <psvitamine1@gmail.com>, 2020
 # Mohammed Alotaibi <mx_202@hotmail.com>, 2020
+# mo-hd <mo-hd@windowslive.com>, 2020
 # monzerissa169 <monzerissa169@yahoo.com>, 2020
 # alibacha19 <alibacha19@gmail.com>, 2020
 # MUHAAB SHAAM <muhaab.org@gmail.com>, 2020
-# Abdullah Alnahdy <abdullahalnahdy@gmail.com>, 2020
+# Oukiki Saleh <salehoukiki@gmail.com>, 2020
+# ahmad nourallah <ahmadnurallah@gmail.com>, 2020
 # Cindy0514, 2020
 # أشرف بصرى <ashrafmn2008@gmail.com>, 2020
 # Idir Benkhellat <benkhellat.idir@gmail.com>, 2020
@@ -27,8 +27,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Idir Benkhellat <benkhellat.idir@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/linuxdeepin/teams/3617/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -971,27 +971,27 @@ msgstr "%q متصل"
 msgid "Hotspot disabled"
 msgstr "نقطة البث معطلة"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q غير متصل"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "لا يمكن مشاركة نقطة الإتصال, رجاءً تأكد من إعدادات dnsmasq"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "غير قادر على الإتصال %q رجاءً أقترب أكثر من جهاز التوجيه اللاسلكي."
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "غير قادر على الإتصال %q رجاءً تحقق من جهاز التوجيه أو قابس الإنترنت."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "كلمة السر ضرورية لتوصيل q%"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "خطأ في الإتصال, لا يمكن الإتصال  %q, كلمة مرور خاطئة"
 
@@ -1039,8 +1039,8 @@ msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr "\"%s\" لم يجتز تحقق أمان النظام، ولن يمكن تشغيله الآن"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr "البطارية منخفضة جداً"
+msgid "Battery critically low"
+msgstr "مستوى البطارية منخفض"
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"

@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Hoan Chu Đình <chudinhhoan277@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/linuxdeepin/teams/3617/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -151,27 +151,27 @@ msgstr "Kết nối bluetooth đã thất bại"
 
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
-msgstr ""
+msgstr "Hết giờ"
 
 #: ../../bluetooth/utils_notify.go:113
 msgid "Authentication Timeout"
-msgstr ""
+msgstr "Hết giờ xác thực"
 
 #: ../../bluetooth/utils_notify.go:116
 msgid "Authentication Rejected"
-msgstr ""
+msgstr "Xác thực bị từ chối"
 
 #: ../../bluetooth/utils_notify.go:119
 msgid "Authentication Canceled"
-msgstr ""
+msgstr "Xác thực bị hủy"
 
 #: ../../bluetooth/utils_notify.go:122
 msgid "Already Paired"
-msgstr ""
+msgstr "Đã ghép nối"
 
 #: ../../bluetooth/utils_notify.go:125
 msgid "Authentication Failed"
-msgstr ""
+msgstr "Xác thực thất bại"
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
@@ -965,28 +965,28 @@ msgstr "%q đã kết nối"
 msgid "Hotspot disabled"
 msgstr "Điểm truy cập bị vô hiệu hóa"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q ngắt kết nối"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Không thể chia sẻ điểm truy cập, vui lòng kiểm tra cài đặt dnsmasq"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "Không thể kết nối %q, vui lòng để gần hơn với bộ phát wifi"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr ""
 "Không thể kết nối %q, vui lòng kiểm tra bộ phát wifi hoặc cáp mạng của bạn."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Mật khẩu là bắt buộc để kết nối %q"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Kết nối thất bại, không thể kết nối %q, sai mật khẩu"
 
@@ -1034,12 +1034,12 @@ msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr "\"%s\" đã không vượt qua xác minh bảo mật hệ thống và không thể chạy"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr ""
+msgid "Battery critically low"
+msgstr "Pin cực kỳ thấp"
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"
-msgstr ""
+msgstr "Máy tính sẽ tạm ngưng, vui lòng cắm nguồn ngay lập tức"
 
 #: ../../session/power/manager_events.go:206
 #: ../../session/power/manager_events.go:213
@@ -1048,7 +1048,7 @@ msgstr "Pin Thấp"
 
 #: ../../session/power/manager_events.go:207
 msgid "Computer will suspend soon, please plug in"
-msgstr ""
+msgstr "Máy tính sẽ tạm ngưng, vui lòng cắm nguồn"
 
 #: ../../session/power/manager_events.go:214
 msgid "Battery low, please plug in"

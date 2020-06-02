@@ -4,23 +4,23 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 李洪武 <lihongwu1987@gmail.com>, 2020
 # electricface <songwentai@linuxdeepin.com>, 2020
+# 李洪武 <lihongwu1987@gmail.com>, 2020
 # Michael Jay Tong <michaeljayt@gmail.com>, 2020
 # cxbii <mycxbii@gmail.com>, 2020
 # hualet <mr.asianwang@gmail.com>, 2020
 # Maggie Liu <maggie.liufei@gmail.com>, 2020
-# transifex deepin <transifex@deepin.com>, 2020
 # Cindy0514, 2020
+# transifex deepin <transifex@deepin.com>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
-"Last-Translator: Cindy0514, 2020\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
+"Last-Translator: transifex deepin <transifex@deepin.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/linuxdeepin/teams/3617/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -958,27 +958,27 @@ msgstr "已连接%q"
 msgid "Hotspot disabled"
 msgstr "热点共享已关闭"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q已断开"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "无法共享热点，请检查dnsmasq 相关设置"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "未能加入%q，请尝试靠近无线路由器"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "未能加入%q，请检查路由器或网线。"
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "连接%q需要密码"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "连接失败，未能加入%q，密码不正确"
 
@@ -1026,7 +1026,7 @@ msgid "\"%s\" did not pass the system security verification, and cannot run now"
 msgstr "“%s”没有通过系统安全验证，无法运行"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "电池电量耗尽"
 
 #: ../../session/power/manager_events.go:183

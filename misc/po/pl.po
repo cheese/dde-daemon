@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Pyroxar <kacper-paczos@linux.pl>, 2020\n"
 "Language-Team: Polish (https://www.transifex.com/linuxdeepin/teams/3617/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -153,39 +153,39 @@ msgstr "Błąd połączenia Bluetooth"
 
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
-msgstr ""
+msgstr "Limit czasu strony"
 
 #: ../../bluetooth/utils_notify.go:113
 msgid "Authentication Timeout"
-msgstr ""
+msgstr "Limit czasu uwierzytelnienia"
 
 #: ../../bluetooth/utils_notify.go:116
 msgid "Authentication Rejected"
-msgstr ""
+msgstr "Odrzucono uwierzytelnianie"
 
 #: ../../bluetooth/utils_notify.go:119
 msgid "Authentication Canceled"
-msgstr ""
+msgstr "Uwierzytelnianie anulowane"
 
 #: ../../bluetooth/utils_notify.go:122
 msgid "Already Paired"
-msgstr ""
+msgstr "Już sparowane"
 
 #: ../../bluetooth/utils_notify.go:125
 msgid "Authentication Failed"
-msgstr ""
+msgstr "Uwierzytelnianie nie powiodło się"
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
-msgstr ""
+msgstr "Kliknij tutaj, aby połączyć się z %q"
 
 #: ../../bluetooth/utils_notify.go:136
 msgid "Add Bluetooth devices"
-msgstr ""
+msgstr "Dodaj urządzenia Bluetooth"
 
 #: ../../bluetooth/utils_notify.go:150
 msgid "Pair"
-msgstr ""
+msgstr "Paruj"
 
 #: ../../calendar/job.go:419 ../../calendar/job.go:426
 msgid "today"
@@ -975,29 +975,29 @@ msgstr "%q jest połączone"
 msgid "Hotspot disabled"
 msgstr "Punkt dostępu wyłączony"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q jest rozłączone"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Nie można udostępnić hotspotu, należy sprawdzić ustawienia dnsmasq"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr ""
 "Nie można połączyć z %q, prosimy przybliżyć się do routera bezprzewodowego"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr ""
 "Nie można połączyć z %q, prosimy sprawdzić swój router lub kabel sieciowy."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Aby połączyć się z %q wymagane jest hasło"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr "Połączenie nie powiodło się, nie można połączyć z %q, złe hasło"
 
@@ -1049,8 +1049,8 @@ msgstr ""
 "działać"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr "Krytycznie niski stan baterii"
+msgid "Battery critically low"
+msgstr "Krytycznie niski poziom baterii"
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"

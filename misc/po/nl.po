@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Alain Baudrez <inactive+Wamukota@transifex.com>, 2020
+# b619f8b7eb226a70bc7d5cadcfa79734_230f6d0 <5e8718ab95c3ca367d12d9e77a5e9072_4743>, 2020
 # Heimen Stoffels <vistausss@outlook.com>, 2020
 # dragnadh, 2020
 # Maggie Liu <maggie.liufei@gmail.com>, 2020
@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Bernard Flach <bernard@deepin.nl>, 2020\n"
 "Language-Team: Dutch (https://www.transifex.com/linuxdeepin/teams/3617/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -980,27 +980,27 @@ msgstr "%q verbonden"
 msgid "Hotspot disabled"
 msgstr "Hotspot uitgeschakeld"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q ontkoppeld"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Kan hotspot niet delen, controleer de instellingen van dnsmasq"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "Kon %q niet verbinden, blijf dichter bij de draadloze router"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr "Kan %q niet verbinden, controleer uw router of netwerk kabel"
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Wachtwoord is nodig om verbinding te maken met %q"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr ""
 "Verbinding mislukt, kan geen verbinding maken met %q, verkeerd wachtwoord"
@@ -1053,8 +1053,8 @@ msgstr ""
 " draaien"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
-msgstr "Batterijniveau kritiek laag"
+msgid "Battery critically low"
+msgstr "Batterij kritiek laag"
 
 #: ../../session/power/manager_events.go:183
 msgid "Computer will suspend very soon, please plug in now"

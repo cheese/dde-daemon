@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Cindy0514, 2020\n"
 "Language-Team: Catalan (https://www.transifex.com/linuxdeepin/teams/3617/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -151,27 +151,27 @@ msgstr "Ha fallat la connexió de Bluetooth."
 
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
-msgstr ""
+msgstr "Temps d'espera de la pàgina"
 
 #: ../../bluetooth/utils_notify.go:113
 msgid "Authentication Timeout"
-msgstr ""
+msgstr "S'ha esgotat el temps d'espera de l'autenticació"
 
 #: ../../bluetooth/utils_notify.go:116
 msgid "Authentication Rejected"
-msgstr ""
+msgstr "Autenticació rebutjada"
 
 #: ../../bluetooth/utils_notify.go:119
 msgid "Authentication Canceled"
-msgstr ""
+msgstr "Autenticació cancel·lada"
 
 #: ../../bluetooth/utils_notify.go:122
 msgid "Already Paired"
-msgstr ""
+msgstr "Ja s'ha enllaçat"
 
 #: ../../bluetooth/utils_notify.go:125
 msgid "Authentication Failed"
-msgstr ""
+msgstr "Ha fallat l'autenticació"
 
 #: ../../bluetooth/utils_notify.go:135
 msgid "Click here to connect to %q"
@@ -981,32 +981,32 @@ msgstr "%q connectada"
 msgid "Hotspot disabled"
 msgstr "Punt d'accés inhabilitat"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q desconnectada"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr ""
 "No es pot compartir el punt d'accés. Si us plau, comproveu la configuració "
 "de dnsmasq."
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr ""
 "No es pot connectar amb %q. Si us plau, mantingueu-vos a prop de "
 "l'encaminador."
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr ""
 "No es pot connectar amb %q, comproveu l'encaminador o el cable de xarxa."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Cal la contrasenya per connectar amb %q"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr ""
 "Ha fallat la connexió. No es pot connectar amb %q. Contrasenya incorrecta."
@@ -1059,7 +1059,7 @@ msgstr ""
 "executar ara."
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "Bateria molt baixa"
 
 #: ../../session/power/manager_events.go:183

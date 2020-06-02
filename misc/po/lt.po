@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-25 12:34+0800\n"
-"PO-Revision-Date: 2020-05-25 03:36+0000\n"
+"POT-Creation-Date: 2020-06-01 19:10+0800\n"
+"PO-Revision-Date: 2020-06-01 11:26+0000\n"
 "Last-Translator: Cindy0514, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/linuxdeepin/teams/3617/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -968,28 +968,28 @@ msgstr "%q prijungtas"
 msgid "Hotspot disabled"
 msgstr "Prieigos taškas išjungtas"
 
-#: ../../network/state_handler.go:331
+#: ../../network/state_handler.go:332
 msgid "%q disconnected"
 msgstr "%q atjungtas"
 
-#: ../../network/state_handler.go:337
+#: ../../network/state_handler.go:341
 msgid "Unable to share hotspot, please check dnsmasq settings"
 msgstr "Nepavyko bendrinti prieigos taško, patikrinkite dnsmasq nustatymus"
 
-#: ../../network/state_handler.go:339
+#: ../../network/state_handler.go:343
 msgid "Unable to connect %q, please keep closer to the wireless router"
 msgstr "Nepavyko prijungti %q, laikykite arčiau belaidžio maršrutizatoriaus"
 
-#: ../../network/state_handler.go:341
+#: ../../network/state_handler.go:345
 msgid "Unable to connect %q, please check your router or net cable."
 msgstr ""
 "Nepavyko prijungti %q, patikrinkite savo maršrutizatorių ar tinklo laidą."
 
-#: ../../network/state_handler.go:345
+#: ../../network/state_handler.go:349
 msgid "Password is required to connect %q"
 msgstr "Norint prijungti %q, reikalingas slaptažodis"
 
-#: ../../network/state_handler.go:349
+#: ../../network/state_handler.go:353
 msgid "Connection failed, unable to connect %q, wrong password"
 msgstr ""
 "Ryšys patyrė nesėkmę, nepavyko prisijungti prie %q, neteisingas slaptažodis"
@@ -1041,7 +1041,7 @@ msgstr ""
 "\"%s\" nepraėjo sistemos saugumo patikrinimo ir dabar negali būti paleista"
 
 #: ../../session/power/manager_events.go:182
-msgid "Battery Critically Low"
+msgid "Battery critically low"
 msgstr "Kritiškai žema baterijos įkrova"
 
 #: ../../session/power/manager_events.go:183
