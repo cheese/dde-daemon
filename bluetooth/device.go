@@ -47,6 +47,8 @@ func (s deviceState) String() string {
 		return "doing"
 	case deviceStateConnected:
 		return "Connected"
+    	case deviceStateDisconnecting:
+       		return "Disconnecting"
 	default:
 		return fmt.Sprintf("Unknown(%d)", s)
 	}
