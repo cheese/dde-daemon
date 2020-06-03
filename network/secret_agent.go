@@ -56,8 +56,7 @@ type SecretAgent struct {
 	saveSecretsTasks   map[saveSecretsTaskKey]saveSecretsTask
 	saveSecretsTasksMu sync.Mutex
 
-	m *Manager
-	iconFlags  bool
+	m *Manager 
 
 	methods *struct {
 		GetSecrets        func() `in:"connection,connectionPath,settingName,hints,flags" out:"secrets"`
@@ -568,16 +567,17 @@ func (sa *SecretAgent) getSecrets(connectionData map[string]map[string]dbus.Vari
 			if err != nil {
 				logger.Warning("askPasswords error:", err)
 				if sa.m.ActiveConnectSettingPath == connectionPath {
-					sa.iconFlags = false 
+					sa.m.canNotify= false 
 					sa.m.DisconnectDevice(sa.m.ActiveConnectDevpath)
 				}
 			} else {
-				var items []settingItem
 				for key, value := range resultAsk {
 					setting[key] = dbus.MakeVariant(value)
 					secretFlags, _ := getConnectionDataUint32(connectionData, settingName,
 					getSecretFlagsKeyName(key))
 					if secretFlags == secretFlagAgentOwned {
+						sa.m.hasSaveSecret = false 
+						var items []settingItem
 						valueStr, ok := setting[key].Value().(string)
 						if ok {
 							label := fmt.Sprintf("Network secret for %s/%s/%s", connId, settingName, key)
@@ -588,11 +588,9 @@ func (sa *SecretAgent) getSecrets(connectionData map[string]map[string]dbus.Vari
 								label:       label,
 							})
 						}
+						sa.m.items = items 
 					}
-				}
-			        for _, item := range items {
-					sa.set(item.label, connUUID, item.settingName, item.settingKey, item.value)
-				}
+				}							
 			}
 		}
 
@@ -612,6 +610,7 @@ func (sa *SecretAgent) getSecrets(connectionData map[string]map[string]dbus.Vari
 	}
 	return
 }
+
 
 func printConnectionData(data map[string]map[string]dbus.Variant) {
 	for settingName, setting := range data {
