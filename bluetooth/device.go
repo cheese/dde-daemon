@@ -663,6 +663,9 @@ func (d *device) goWaitDisconnect() chan struct{} {
 
 func killBluetoothDialog() {
 	logger.Debug("killBluetoothDialog")
+	if cmdPinDialog == nil {
+		return		
+	} 
 	err := cmdPinDialog.Process.Kill()
 	if err != nil {
 		logger.Warning("kill err ", err)
