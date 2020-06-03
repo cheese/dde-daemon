@@ -34,7 +34,7 @@ const (
 	deviceStateDisconnected  = 0
 	deviceStateConnecting    = 1
 	deviceStateConnected     = 2
-	deviceStateDisconnecting = 1
+	deviceStateDisconnecting = 3
 )
 
 type deviceState uint32
