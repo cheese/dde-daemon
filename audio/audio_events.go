@@ -132,6 +132,10 @@ func (a *Audio) handleCardEvent(eventType int, idx uint32) {
 			a.setPropCards(a.cards.string())
 			a.PropsMu.Unlock()
 		}
+		//如果声卡配置文件是a2dp时,是不允许添加输入设备的
+		if cardInfo.ActiveProfile.Name == "a2dp_sink" {
+			a.enableSource = false 
+		}
 		a.mu.Unlock()
 	}
 }
@@ -343,6 +347,11 @@ func (a *Audio) handleSinkInputRemoved(idx uint32) {
 }
 
 func (a *Audio) addSource(sourceInfo *pulse.Source) {
+	//如果不能启用输入源,说明声卡配置文件是"a2dp",此时不能添加a2dp输入设备
+	if !a.enableSource {
+		a.enableSource = true
+		return 
+	} 
 	source := newSource(sourceInfo, a)
 
 	a.mu.Lock()
