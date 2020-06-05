@@ -20,8 +20,11 @@
 package main
 
 import (
+	"bufio"
 	"flag"
+	"io"
 	"os"
+	"strings"
 
 	"os/exec"
 
@@ -56,18 +59,23 @@ func main() {
 	}
 
 	// fix os /boot firm in huawei
-	// TODO(jouyouyun): detect whether /boot mount as ro
-	outs, err := exec.Command("/bin/sh", "-c", "mount -o rw,remount /boot").CombinedOutput()
+	bootMount, err := ReadBootLine("/proc/self/mounts")
 	if err != nil {
-		logger.Warning("Failed to remount /boot to rw:", string(outs), err)
-		os.Exit(2)
+		logger.Warning("load bootMount error")
 	}
-	defer func() {
-		outs, err := exec.Command("/bin/sh", "-c", "mount -o ro,remount /boot").CombinedOutput()
+	if strings.Contains(bootMount[0], "ro") {
+		outs, err := exec.Command("/bin/sh", "-c", "mount -o rw,remount /boot").CombinedOutput()
 		if err != nil {
-			logger.Warning("Failed to remount /boot to ro:", string(outs), err)
+			logger.Warning("Failed to remount /boot to rw:", string(outs), err)
+			os.Exit(2)
 		}
-	}()
+		defer func() {
+			outs, err := exec.Command("/bin/sh", "-c", "mount -o ro,remount /boot").CombinedOutput()
+			if err != nil {
+				logger.Warning("Failed to remount /boot to ro:", string(outs), err)
+			}
+		}()
+	}
 
 	if optPrepareGfxmodeDetect {
 		logger.Debug("mode: prepare gfxmode detect")
@@ -90,4 +98,27 @@ func main() {
 		logger.Debug("mode: daemon")
 		grub2.RunAsDaemon()
 	}
+}
+
+func ReadBootLine(fileName string) ([]string, error) {
+	f, err := os.Open(fileName)
+	if err != nil {
+		return nil, err
+	}
+	buf := bufio.NewReader(f)
+	var result []string
+	for {
+		line, err := buf.ReadString('\n')
+		line = strings.TrimSpace(line)
+		if err != nil {
+			if err == io.EOF { //读取结束，会报EOF
+				return result, nil
+			}
+			return nil, err
+		}
+		if strings.Contains(line, " /boot ") {
+			result = append(result, line)
+		}
+	}
+	return result, nil
 }
