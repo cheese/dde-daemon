@@ -67,6 +67,8 @@ type SecretAgent struct {
 	}
 }
 
+var errSecretAgentUserCanceled = errors.New("user canceled")
+
 func (sa *SecretAgent) addSaveSecretsTask(connPath dbus.ObjectPath,
 	settingName string, process *os.Process) {
 	sa.saveSecretsTasksMu.Lock()
@@ -375,6 +377,12 @@ func (sa *SecretAgent) GetSecrets(connectionData map[string]map[string]dbus.Vari
 	var err error
 	secretsData, err = sa.getSecrets(connectionData, connectionPath, settingName, hints, flags)
 	if err != nil {
+		if err == errSecretAgentUserCanceled {
+			return nil, &dbus.Error{
+				Name: "org.freedesktop.NetworkManager.SecretAgent.UserCanceled",
+				Body: []interface{}{"user canceled"},
+			}
+		}
 		return nil, dbusutil.ToError(err)
 	}
 
@@ -567,8 +575,7 @@ func (sa *SecretAgent) getSecrets(connectionData map[string]map[string]dbus.Vari
 			if err != nil {
 				logger.Warning("askPasswords error:", err)
 				if sa.m.ActiveConnectSettingPath == connectionPath {
-					sa.m.canNotify= false 
-					sa.m.DisconnectDevice(sa.m.ActiveConnectDevpath)
+					return nil, errSecretAgentUserCanceled
 				}
 			} else {
 				for key, value := range resultAsk {

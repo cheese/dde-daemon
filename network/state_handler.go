@@ -334,11 +334,7 @@ func (sh *stateHandler) watch(path dbus.ObjectPath) {
 						if dsi.connectionType == connectionWirelessHotspot {
 							notify(icon, "", Tr("Hotspot disabled"))
 						} else {
-							if sh.m.canNotify {
 								msg = fmt.Sprintf(Tr("%q disconnected"), dsi.aconnId)
-							} else {
-								sh.m.canNotify = true
-							}
 						}
 					}
 				case nm.NM_DEVICE_STATE_REASON_NEW_ACTIVATION:

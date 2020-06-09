@@ -86,7 +86,6 @@ type Manager struct {
 	stateHandler       *stateHandler
 	proxyChainsManager *proxychains.Manager
 
-	canNotify			bool //do not notify "disconected" when Unconnect wifi
 	hasSaveSecret 		bool //determine whether to save the password to the keyring
 	items 				[]settingItem // save password information temporarily
 	
