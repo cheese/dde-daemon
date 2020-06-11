@@ -22,8 +22,12 @@ package audio
 import (
 	"fmt"
 	"sort"
+	"strings"
 
 	"pkg.deepin.io/lib/pulse"
+	"pkg.deepin.io/lib/dbus1"
+	bluez "github.com/linuxdeepin/go-dbus-factory/org.bluez"
+
 )
 
 type Card struct {
@@ -69,6 +73,16 @@ func getCardName(card *pulse.Card) (name string) {
 }
 
 func (c *Card) update(card *pulse.Card) {
+	//过滤掉蓝牙设备中被识别为computer的
+	if strings.Contains(card.Name, "bluez") {
+		cardType, err := getCardIcon(card.Name)
+		if err != nil {
+			return
+		}
+		if cardType == "computer" {
+			return
+		}
+	}
 	c.Id = card.Index
 	c.Name = getCardName(card)
 	c.ActiveProfile = newProfile(card.ActiveProfile)
@@ -76,6 +90,25 @@ func (c *Card) update(card *pulse.Card) {
 	c.Profiles = newProfileList(card.Profiles)
 	c.filterProfile(card)
 	c.Ports = card.Ports
+}
+
+//从dbus中通过设备名字找到icon属性
+func getCardIcon(cardName string) (cardType string, erro error) {
+	systemBus, err := dbus.SystemBus()
+	if err != nil {
+		return "", err
+	}
+	n := strings.Split(cardName,".")
+	var path string = "/org/bluez/hci0/dev_" + n[1]
+	d, err := bluez.NewDevice(systemBus, dbus.ObjectPath(path))
+	if err != nil {
+		return "", err 
+	}
+	icon, err := d.Icon().Get(0)
+	if err != nil {
+		return "", err 
+	}
+	return icon, nil
 }
 
 func (c *Card) tryGetProfileByPort(portName string) (string, error) {
