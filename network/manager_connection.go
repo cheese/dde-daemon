@@ -488,10 +488,11 @@ func (m *Manager) activateConnection(uuid string, devPath dbus.ObjectPath) (cpat
 		return
 	}
 	m.hasSaveSecret = true
+	m.saveToKeyring= true 
 	_, err = nmActivateConnection(cpath, devPath)
-	m.ActiveConnectDevpath = devPath
-	m.ActiveConnectUuid = uuid
-	m.ActiveConnectSettingPath = cpath
+	m.activeConnectDevpath = devPath
+	m.activeConnectUuid = uuid
+	m.activeConnectSettingPath = cpath
 	return
 }
 

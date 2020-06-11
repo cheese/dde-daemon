@@ -354,6 +354,7 @@ func (sh *stateHandler) watch(path dbus.ObjectPath) {
 					if oldState == nm.NM_DEVICE_STATE_CONFIG && newState == nm.NM_DEVICE_STATE_NEED_AUTH {
 						msg = fmt.Sprintf(Tr("Connection failed, unable to connect %q, wrong password"), dsi.aconnId)					
 					}
+					sh.m.hasSaveSecret = true
 				//default:
 				//	if dsi.aconnId != "" {
 				//		msg = fmt.Sprintf(Tr("%q disconnected"), dsi.aconnId)
