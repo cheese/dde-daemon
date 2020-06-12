@@ -86,10 +86,10 @@ type Manager struct {
 	stateHandler       *stateHandler
 	proxyChainsManager *proxychains.Manager
 
-	hasSaveSecret bool          //determine whether to save the password to the keyring
-	items         []settingItem // save password information temporarily
-	saveToKeyring bool          // do not save password to keyring by default
-
+	hasSaveSecret	bool //determine whether to save the password to the keyring
+	items		[]settingItem // save password information temporarily
+	saveToKeyring	bool// do not save password to keyring by default 
+	notFirstLoad	bool
 	sessionSigLoop *dbusutil.SignalLoop
 	syncConfig     *dsync.Config
 
@@ -180,6 +180,7 @@ func (m *Manager) init() {
 		return
 	}
 	m.saveToKeyring = true 
+	m.notFirstLoad = false 
 	// TODO(jouyouyun): improve in future
 	// Sometimes the 'org.freedesktop.secrets' is not exists, this would block the 'init' function, so move to goroutinue
 	go func() {

@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/linuxdeepin/go-dbus-factory/org.freedesktop.secrets"
 	"pkg.deepin.io/dde/daemon/network/nm"
@@ -180,6 +181,22 @@ func (sa *SecretAgent) deleteAll(uuid string) error {
 	return nil
 }
 
+func (sa *SecretAgent) repeatGetAll(uuid, settingName string) (map[string]string, error){
+	var resultSaved map[string]string
+	var err error 
+	for i := 0 ; i<10; i++{
+		resultSaved, err = sa.getAll(uuid, settingName)
+		if err != nil {
+			return nil, err
+		}
+		if len(resultSaved) != 0 {
+			logger.Debug("get secret in %d times", i)
+			return resultSaved, nil
+		}
+		time.Sleep(time.Duration(200)*time.Millisecond)
+	}
+	return resultSaved, nil 
+}
 func (sa *SecretAgent) getAll(uuid, settingName string) (map[string]string, error) {
 	attributes := map[string]string{
 		keyringTagConnUUID:    uuid,
@@ -558,10 +575,20 @@ func (sa *SecretAgent) getSecrets(connectionData map[string]map[string]dbus.Vari
 					askItems = append(askItems, secretKey)
 				}
 			} else if secretFlags == secretFlagAgentOwned && sa.m.saveToKeyring {
-				resultSaved, err := sa.getAll(connUUID, settingName)
-				if err != nil {
-					return nil, err
-				}		
+				var resultSaved map[string]string
+				var err error 
+				if !sa.m.notFirstLoad {
+					resultSaved, err = sa.repeatGetAll(connUUID, settingName)
+					if err != nil {
+						return nil, err
+					}		
+					sa.m.notFirstLoad = true 
+				} else {
+					resultSaved, err = sa.getAll(connUUID, settingName)
+					if err != nil {
+						return nil, err
+					}
+				}
 				logger.Debugf("getAll resultSaved: %#v", resultSaved)
 			        if len(resultSaved) == 0 && allowInteraction && isMustAsk(connectionData, settingName, secretKey) {
 					askItems = append(askItems, secretKey)
