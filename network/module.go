@@ -50,7 +50,7 @@ func HandlePrepareForSleep(sleep bool) {
 	}
 	// wakeup
 	enableNotify()
-	_ = manager.RequestWirelessScan()
+	_, _ = manager.RequestWirelessScan()
 }
 
 type Module struct {

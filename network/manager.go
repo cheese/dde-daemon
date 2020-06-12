@@ -86,16 +86,19 @@ type Manager struct {
 	stateHandler       *stateHandler
 	proxyChainsManager *proxychains.Manager
 
-	hasSaveSecret 		bool //determine whether to save the password to the keyring
-	items 			[]settingItem // save password information temporarily
-	saveToKeyring		bool// do not save password to keyring by default 
-	
+	hasSaveSecret bool          //determine whether to save the password to the keyring
+	items         []settingItem // save password information temporarily
+	saveToKeyring bool          // do not save password to keyring by default
+
 	sessionSigLoop *dbusutil.SignalLoop
 	syncConfig     *dsync.Config
 
-	activeConnectDevpath 	 dbus.ObjectPath
-	activeConnectUuid 		 string
+	activeConnectDevpath     dbus.ObjectPath
+	activeConnectUuid        string
 	activeConnectSettingPath dbus.ObjectPath
+
+	WirelessAccessPoints      string `prop:"access:r"` //用于读取AP
+	updateWirelessCountTicker *countTicker
 
 	signals *struct {
 		AccessPointAdded, AccessPointRemoved, AccessPointPropertiesChanged struct {
@@ -126,6 +129,7 @@ type Manager struct {
 		IsDeviceEnabled              func() `in:"devPath" out:"enabled"`
 		IsWirelessHotspotModeEnabled func() `in:"devPath" out:"enabled"`
 		ListDeviceConnections        func() `in:"devPath" out:"connections"`
+		RequestWirelessScan          func() `out:"apsJSONs"`
 		SetAutoProxy                 func() `in:"proxyAuto"`
 		SetDeviceManaged             func() `in:"devPathOrIfc,managed"`
 		SetProxy                     func() `in:"proxyType,host,port"`
@@ -180,7 +184,7 @@ func (m *Manager) init() {
 	// Sometimes the 'org.freedesktop.secrets' is not exists, this would block the 'init' function, so move to goroutinue
 	go func() {
 		secServiceObj := secrets.NewService(sessionBus)
-		sa, err := newSecretAgent(secServiceObj,m)
+		sa, err := newSecretAgent(secServiceObj, m)
 		if err != nil {
 			logger.Warning(err)
 			return
@@ -228,7 +232,7 @@ func (m *Manager) init() {
 		m.updatePropConnectivity()
 	})
 	m.updatePropConnectivity()
-
+	m.initCountTicker()
 	// move to power module
 	// connect computer suspend signal
 	// _, err = loginManager.ConnectPrepareForSleep(func(active bool) {
@@ -268,6 +272,11 @@ func (m *Manager) destroy() {
 	// reset dbus properties
 	m.setPropNetworkingEnabled(false)
 	m.updatePropState()
+
+	if m.updateWirelessCountTicker != nil {
+		m.updateWirelessCountTicker.Stop()
+		m.updateWirelessCountTicker = nil
+	}
 }
 
 func watchNetworkManagerRestart(m *Manager) {
