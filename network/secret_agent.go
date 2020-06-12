@@ -190,7 +190,7 @@ func (sa *SecretAgent) repeatGetAll(uuid, settingName string) (map[string]string
 			return nil, err
 		}
 		if len(resultSaved) != 0 {
-			logger.Debug("get secret in %d times", i)
+			logger.Debugf("get secret in %v times", i)
 			return resultSaved, nil
 		}
 		time.Sleep(time.Duration(200)*time.Millisecond)
