@@ -175,7 +175,7 @@ func (m *Manager) init() {
 		logger.Warning(err)
 		return
 	}
-
+	m.saveToKeyring = true 
 	// TODO(jouyouyun): improve in future
 	// Sometimes the 'org.freedesktop.secrets' is not exists, this would block the 'init' function, so move to goroutinue
 	go func() {
