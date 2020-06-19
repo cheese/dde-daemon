@@ -182,7 +182,7 @@ func (m *Manager) init() {
 	// Sometimes the 'org.freedesktop.secrets' is not exists, this would block the 'init' function, so move to goroutinue
 	go func() {
 		secServiceObj := secrets.NewService(sessionBus)
-		sa, err := newSecretAgent(secServiceObj)
+		sa, err := newSecretAgent(secServiceObj, m)
 		if err != nil {
 			logger.Warning(err)
 			return

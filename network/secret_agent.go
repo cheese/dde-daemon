@@ -134,7 +134,7 @@ func (sa *SecretAgent) getDefaultCollection() (*secrets.Collection, error) {
 	return collectionObj, err
 }
 
-func newSecretAgent(secServiceObj *secrets.Service) (*SecretAgent, error) {
+func newSecretAgent(secServiceObj *secrets.Service, manager *Manager) (*SecretAgent, error) {
 	_, sessionPath, err := secServiceObj.OpenSession(0, "plain", dbus.MakeVariant(""))
 	if err != nil {
 		return nil, err
