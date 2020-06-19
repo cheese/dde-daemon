@@ -93,9 +93,6 @@ type Manager struct {
 	sessionSigLoop *dbusutil.SignalLoop
 	syncConfig     *dsync.Config
 
-	activeConnectDevpath     dbus.ObjectPath
-	activeConnectUuid        string
-	activeConnectSettingPath dbus.ObjectPath
 
 	WirelessAccessPoints      string `prop:"access:r"` //用于读取AP
 	updateWirelessCountTicker *countTicker
@@ -185,7 +182,7 @@ func (m *Manager) init() {
 	// Sometimes the 'org.freedesktop.secrets' is not exists, this would block the 'init' function, so move to goroutinue
 	go func() {
 		secServiceObj := secrets.NewService(sessionBus)
-		sa, err := newSecretAgent(secServiceObj, m)
+		sa, err := newSecretAgent(secServiceObj)
 		if err != nil {
 			logger.Warning(err)
 			return

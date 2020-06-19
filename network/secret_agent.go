@@ -134,7 +134,7 @@ func (sa *SecretAgent) getDefaultCollection() (*secrets.Collection, error) {
 	return collectionObj, err
 }
 
-func newSecretAgent(secServiceObj *secrets.Service, manager *Manager) (*SecretAgent, error) {
+func newSecretAgent(secServiceObj *secrets.Service) (*SecretAgent, error) {
 	_, sessionPath, err := secServiceObj.OpenSession(0, "plain", dbus.MakeVariant(""))
 	if err != nil {
 		return nil, err
@@ -606,9 +606,7 @@ func (sa *SecretAgent) getSecrets(connectionData map[string]map[string]dbus.Vari
 				settingName, askItems, requestNew)
 			if err != nil {
 				logger.Warning("askPasswords error:", err)
-				if sa.m.activeConnectSettingPath == connectionPath {
-					return nil, errSecretAgentUserCanceled
-				}
+				return nil, errSecretAgentUserCanceled
 			} else {
 				for key, value := range resultAsk {
 					setting[key] = dbus.MakeVariant(value)
