@@ -19,13 +19,15 @@
 
 package audio
 
-import "pkg.deepin.io/lib/pulse"
 import (
 	"sort"
 	"strconv"
 	"time"
+	"strings"
 
-	"pkg.deepin.io/lib/dbus1"
+	"pkg.deepin.io/lib/pulse"
+	bluez "github.com/linuxdeepin/go-dbus-factory/org.bluez"
+	dbus "pkg.deepin.io/lib/dbus1"
 )
 
 func (a *Audio) handleEvent() {
@@ -84,13 +86,47 @@ func (a *Audio) handleStateChanged() {
 	}
 }
 
+func isDeviceValid(deviceName string) bool {
+	if strings.Contains(deviceName, "bluez") {
+		systemBus, err := dbus.SystemBus()
+		if err != nil {
+			logger.Warning("[isDeviceValid] dbus connect failed:", err)
+			return false
+		}
+		nameArray := strings.Split(deviceName, ".")
+		if len(nameArray) < 2 {
+			return false
+		}
+		var path string = "/org/bluez/hci0/dev_" + nameArray[1]
+		blueDevice, err := bluez.NewDevice(systemBus, dbus.ObjectPath(path))
+		if err != nil {
+			logger.Warning("[isDeviceValid] new device failed:", err)
+			return false
+		}
+		icon, err := blueDevice.Icon().Get(0)
+		if err != nil {
+			logger.Warning("[isDeviceValid] get icon failed:", err)
+			return false
+		}
+		if icon == "computer" {
+			return false
+		}
+		return true
+	} else {
+		return true
+	}
+}
+
 func (a *Audio) handleCardEvent(eventType int, idx uint32) {
 	switch eventType {
 	case pulse.EventTypeNew:
 		logger.Debugf("[Event] card #%d added", idx)
 		cardInfo, err := a.ctx.GetCard(idx)
 		if nil != err {
-			logger.Warning("get card info failed: ", err)
+			logger.Warning("get card info failed:", err)
+			return
+		}
+		if !isDeviceValid(cardInfo.Name) {
 			return
 		}
 		cards, added := a.cards.add(newCard(cardInfo))
@@ -121,7 +157,10 @@ func (a *Audio) handleCardEvent(eventType int, idx uint32) {
 		logger.Debugf("[Event] card #%d changed", idx)
 		cardInfo, err := a.ctx.GetCard(idx)
 		if nil != err {
-			logger.Warning("get card info failed: ", err)
+			logger.Warning("get card info failed:", err)
+			return
+		}
+		if !isDeviceValid(cardInfo.Name) {
 			return
 		}
 		a.mu.Lock()
@@ -173,7 +212,9 @@ func (a *Audio) handleSinkEvent(eventType int, idx uint32) {
 			logger.Warning(err)
 			return
 		}
-
+		if !isDeviceValid(sinkInfo.Name) {
+			return
+		}
 		a.mu.Lock()
 		_, ok := a.sinks[idx]
 		a.mu.Unlock()
@@ -207,7 +248,9 @@ func (a *Audio) handleSinkEvent(eventType int, idx uint32) {
 			logger.Warning(err)
 			return
 		}
-
+		if !isDeviceValid(sinkInfo.Name) {
+			return
+		}
 		a.mu.Lock()
 		sink, ok := a.sinks[idx]
 		a.mu.Unlock()
@@ -384,7 +427,9 @@ func (a *Audio) handleSourceEvent(eventType int, idx uint32) {
 			logger.Warning(err)
 			return
 		}
-
+		if !isDeviceValid(sourceInfo.Name) {
+			return
+		}
 		a.mu.Lock()
 		_, ok := a.sources[idx]
 		a.mu.Unlock()
@@ -420,7 +465,9 @@ func (a *Audio) handleSourceEvent(eventType int, idx uint32) {
 			logger.Warning(err)
 			return
 		}
-
+		if !isDeviceValid(sourceInfo.Name) {
+			return
+		}
 		a.mu.Lock()
 		source, ok := a.sources[idx]
 		a.mu.Unlock()
