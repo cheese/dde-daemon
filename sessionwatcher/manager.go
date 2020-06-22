@@ -265,3 +265,10 @@ func (m *Manager) GetSessions() (ret []dbus.ObjectPath, err *dbus.Error) {
 	m.mu.Unlock()
 	return
 }
+
+func  IsSessionActive() bool {
+	_manager.PropsMu.Lock()
+	isActive := _manager.IsActive
+	_manager.PropsMu.Unlock()
+	return  isActive
+}

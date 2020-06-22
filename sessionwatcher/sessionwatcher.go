@@ -26,6 +26,7 @@ import (
 
 var (
 	logger = log.NewLogger("daemon/sessionwatcher")
+	_manager *Manager
 )
 
 type Daemon struct {
@@ -70,7 +71,7 @@ func (d *Daemon) Start() error {
 	if err != nil {
 		return err
 	}
-
+	_manager = d.manager
 	return nil
 }
 

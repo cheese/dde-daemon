@@ -24,6 +24,7 @@ import (
 	"time"
 
 	"github.com/linuxdeepin/go-dbus-factory/org.freedesktop.notifications"
+	sessionwatcher "pkg.deepin.io/dde/daemon/sessionwatcher"
 	"pkg.deepin.io/dde/daemon/network/nm"
 	"pkg.deepin.io/lib/dbus1"
 	. "pkg.deepin.io/lib/gettext"
@@ -74,6 +75,11 @@ func disableNotify() {
 }
 
 func notify(icon, summary, body string) {
+	//用于防止切换用户后，A用户产生的声音信号，在B用户上生效
+	if !sessionwatcher.IsSessionActive() {
+		logger.Debug("session  is not active")
+		return 
+	}
 	logger.Debugf("notify icon: %q, summary: %q, body: %q", icon, summary, body)
 	if !notifyEnabled {
 		logger.Debug("notify disabled")
