@@ -103,6 +103,10 @@ func notifyConnectFailedAux(alias, format string) {
 	notify(notifyIconBluetoothConnectFailed, Tr("Bluetooth connection failed"), fmt.Sprintf(format, alias))
 }
 
+func notifyWakeBluetoothKeyboard(alias string) {
+	notify(notifyIconBluetoothConnectFailed, Tr("The reconnection request can only be initiated by the keyboard."), alias)
+}
+
 func notifyConnectFailed(alias, err string) {
 	var errReason string
 	switch err {

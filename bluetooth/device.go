@@ -475,6 +475,11 @@ func (d *device) doConnect(hasNotify bool) error {
 		return nil
 	}
 
+	if d.Icon == "input-keyboard" && d.Paired {
+		notifyWakeBluetoothKeyboard(d.Alias)
+		return nil
+	}
+
 	d.setConnectPhase(connectPhaseStart)
 	defer d.setConnectPhase(connectPhaseNone)
 

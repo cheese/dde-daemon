@@ -149,6 +149,10 @@ msgstr "请确定%q已打开而且在通讯范围内"
 msgid "Bluetooth connection failed"
 msgstr "蓝牙连接失败"
 
+#: ../../bluetooth/utils_notify.go:107
+msgid "The reconnection request can only be initiated by the keyboard."
+msgstr "请求只能由键盘发起"
+
 #: ../../bluetooth/utils_notify.go:110
 msgid "Page Timeout"
 msgstr "连接超时"
