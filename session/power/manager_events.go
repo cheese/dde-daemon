@@ -80,6 +80,15 @@ func (m *Manager) initOnBatteryChangedHandler() {
 func (m *Manager) handleBeforeSuspend() {
 	m.setPrepareSuspend(suspendStatePrepare)
 	logger.Debug("before sleep")
+	locked, err := m.helper.SessionManager.Locked().Get(0)
+	if err != nil {
+		logger.Warning(err)
+	}
+	if locked {
+		logger.Debug("lock screen has been show")
+		return
+	}
+
 	if m.SleepLock.Get() {
 		m.lockWaitShow(5*time.Second, false)
 	}
