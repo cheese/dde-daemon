@@ -215,6 +215,9 @@ func newDevice(systemSigLoop *dbusutil.SignalLoop, dpath dbus.ObjectPath) (d *de
 	d.RSSI, _ = d.core.RSSI().Get(0)
 	d.updateState()
 	d.disconnectChan = make(chan struct{})
+	if d.Paired && d.connected {
+		d.ConnectState = true
+	}
 	d.core.InitSignalExt(systemSigLoop, true)
 	d.connectProperties()
 	return
