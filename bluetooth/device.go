@@ -68,6 +68,8 @@ type device struct {
 	Paired           bool
 	State            deviceState
 	ServicesResolved bool
+	ConnectState     bool
+
 	// optional
 	UUIDs   []string
 	Name    string
@@ -150,6 +152,9 @@ func (d *device) setConnectPhase(value connectPhase) {
 
 	d.updateState()
 	d.notifyDevicePropertiesChanged()
+	if d.Paired && d.State == deviceStateConnected && d.ConnectState {
+		notifyConnected(d.Alias)
+	}
 }
 
 func (d *device) getConnectPhase() connectPhase {
@@ -277,7 +282,7 @@ func (d *device) connectProperties() {
 		d.updateState()
 		d.notifyDevicePropertiesChanged()
 
-		if needNotify {
+		if needNotify && d.Paired && d.State == deviceStateConnected && d.ConnectState {
 			d.notifyConnectedChanged()
 		}
 		return
@@ -470,7 +475,6 @@ func (d *device) doConnect(hasNotify bool) error {
 		}
 		return err
 	}
-
 	d.audioA2DPWorkaround()
 
 	err = d.doRealConnect()
@@ -481,7 +485,9 @@ func (d *device) doConnect(hasNotify bool) error {
 		return err
 	}
 
-	if hasNotify {
+	d.ConnectState = true
+	d.notifyDevicePropertiesChanged()
+	if hasNotify && d.Paired && d.State == deviceStateConnected && d.ConnectState {
 		notifyConnected(d.Alias)
 	}
 	return nil
@@ -609,6 +615,8 @@ func (d *device) Disconnect() {
 		logger.Warningf("failed to disconnect %s: %v", d, err)
 	}
 	d.setDisconnectPhase(disconnectPhaseDisconnectEnd)
+	d.ConnectState = false
+	d.notifyDevicePropertiesChanged()
 
 	<-ch
 	notifyDisconnected(d.Alias)

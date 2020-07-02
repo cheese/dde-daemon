@@ -78,7 +78,6 @@ func (m *Manager) initOnBatteryChangedHandler() {
 }
 
 func (m *Manager) handleBeforeSuspend() {
-	m.setDPMSModeOff()
 	m.setPrepareSuspend(suspendStatePrepare)
 	logger.Debug("before sleep")
 	if m.SleepLock.Get() {
@@ -94,12 +93,12 @@ func (m *Manager) handleWakeup() {
 	}
 
 	// Fix wayland sometimes no dpms event after wakeup
-	//if m.UseWayland {
-	//	err := m.helper.ScreenSaver.SimulateUserActivity(0)
-	//	if err != nil {
-	//		logger.Warning(err)
-	//	}
-	//}
+	if m.UseWayland {
+		err := m.helper.ScreenSaver.SimulateUserActivity(0)
+		if err != nil {
+			logger.Warning(err)
+		}
+	}
 
 	if v := m.submodules[submodulePSP]; v != nil {
 		if psp := v.(*powerSavePlan); psp != nil {
