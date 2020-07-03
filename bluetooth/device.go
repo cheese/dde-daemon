@@ -277,6 +277,8 @@ func (d *device) connectProperties() {
 			d.connectedTime = time.Now()
 		} else {
 			d.ConnectState = false
+			// if disconnect success, remove device from map
+			globalBluetooth.removeConnectedDevice(d)
 			// when disconnected quickly after connecting, automatically try to connect
 			sinceConnected := time.Since(d.connectedTime)
 			logger.Debug("sinceConnected:", sinceConnected)
@@ -618,7 +620,10 @@ func (d *device) audioA2DPWorkaround() {
 func (d *device) Connect() {
 	logger.Debug(d, "call Connect()")
 	d.setActiveDoConnect(true)
-	d.doConnect(true)
+	err := d.doConnect(true)
+	if err == nil && d.ConnectState == true {
+		globalBluetooth.addConnectedDevice(d)
+	}
 }
 
 func (d *device) Disconnect() {
