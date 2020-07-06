@@ -229,6 +229,10 @@ func (m *Manager) newDevice(devPath dbus.ObjectPath) (dev *device, err error) {
 		}
 
 		_, err = nmDevWireless.ConnectAccessPointRemoved(func(apPath dbus.ObjectPath) {
+			//待机时不删除热点,这个操作放在唤醒后再删除,不然会导致唤醒时wifi列表为空
+			if dev.State == nm.NM_DEVICE_STATE_UNMANAGED {
+				return 
+			}
 			m.removeAccessPoint(dev.Path, apPath)
 		})
 		if err != nil {

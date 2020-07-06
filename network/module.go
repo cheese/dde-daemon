@@ -51,6 +51,10 @@ func HandlePrepareForSleep(sleep bool) {
 	// wakeup
 	enableNotify()
 	_, _ = manager.RequestWirelessScan()
+	time.AfterFunc(3*time.Second, func() {
+		manager.clearAccessPoints()
+	})
+
 }
 
 type Module struct {
