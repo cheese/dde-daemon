@@ -513,7 +513,8 @@ func (d *device) doConnect(hasNotify bool) error {
 		return err
 	}
 	killBluetoothDialog()
-	d.audioA2DPWorkaround()
+	//去除只连接一个蓝牙音频设备的限制
+	//d.audioA2DPWorkaround()
 
 	err = d.doRealConnect()
 	if err != nil {
