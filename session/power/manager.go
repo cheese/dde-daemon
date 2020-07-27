@@ -110,6 +110,8 @@ type Manager struct {
 	prepareSuspendLocker sync.Mutex
 }
 
+var _manager *Manager
+
 func newManager(service *dbusutil.Service) (*Manager, error) {
 	systemBus, err := dbus.SystemBus()
 	if err != nil {
@@ -197,7 +199,7 @@ func (m *Manager) init() {
 	m.helper.initSignalExt(m.systemSigLoop, m.sessionSigLoop)
 
 	// init sleep inhibitor
-	m.inhibitor = newSleepInhibitor(m.helper.LoginManager)
+	m.inhibitor = newSleepInhibitor(m.helper.LoginManager, m.helper.Daemon)
 	m.inhibitor.OnBeforeSuspend = m.handleBeforeSuspend
 	m.inhibitor.OnWakeup = m.handleWakeup
 	err := m.inhibitor.block()
@@ -247,9 +249,9 @@ func (m *Manager) init() {
 			if name == m.helper.LoginManager.ServiceName_() && oldOwner != "" && newOwner == "" {
 				if m.prepareSuspend == suspendStatePrepare {
 					logger.Info("auto handleWakeup if systemd-logind coredump")
-				 	m.handleWakeup()
+					m.handleWakeup()
 				}
-			} 
+			}
 		})
 	if err != nil {
 		logger.Warning(err)
