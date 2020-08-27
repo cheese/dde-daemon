@@ -592,6 +592,17 @@ func (b *Bluetooth) updateState() {
 	b.PropsMu.Unlock()
 }
 
+func (b *Bluetooth) updateconnectState() {
+       for _, devices := range b.devices {
+               for _, d := range devices {
+                       connected,_ := d.core.Connected().Get(0)
+                       d.ConnectState = connected
+               }
+       }
+
+}
+
+
 func (b *Bluetooth) tryConnectPairedDevices() {
 	var devList = b.getPairedDeviceList()
 	for _, dev := range devList {

@@ -69,6 +69,8 @@ func (b *Bluetooth) SetDeviceTrusted(dpath dbus.ObjectPath, trusted bool) *dbus.
 func (b *Bluetooth) GetDevices(apath dbus.ObjectPath) (devicesJSON string, err *dbus.Error) {
 	b.devicesLock.Lock()
 	devices := b.devices[apath]
+	b.updateconnectState()
+
 	var result []*device
 	for _, device := range devices {
 		result = append(result, device)
